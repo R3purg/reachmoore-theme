@@ -679,6 +679,18 @@
         "name": "Custom Liquid"
       }
     },
+    "us-map": {
+      "name": "US Map",
+      "settings": {
+        "us_map": {
+          "label": "US Map",
+          "info": "US Map"
+        }
+      },
+      "presets": {
+        "name": "US Map"
+      }
+    },
     "featured-blog": {
       "name": "Blog posts",
       "settings": {
