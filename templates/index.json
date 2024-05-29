@@ -47,13 +47,10 @@
         "show_text_below": false
       }
     },
-    "us_map_test_7niAcA": {
-      "type": "us-map-test",
-      "custom_css": [
-
-      ],
-      "settings": {
-      }
+    "us_map": {
+      "type": "us-map",
+      "custom_css": [],
+      "settings": {}
     },
     "rich_text": {
       "type": "rich-text",
@@ -222,7 +219,7 @@
   },
   "order": [
     "image_banner",
-    "us_map_test_7niAcA",
+    "us_map",
     "rich_text",
     "featured_collection",
     "collage",
