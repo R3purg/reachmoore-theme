@@ -1,7 +1,7 @@
 {{ 'us-map.css' | asset_url | stylesheet_tag }}
 
+<script src="{{ 'us-map-jquery-2.2.4.min.js' | asset_url }}" defer="defer"></script> 
 <script src="{{ 'us-map.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'us-map-jquery-2.2.4.min.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
   .main-us-map {
@@ -25,27 +25,27 @@
   endif
 -%}
 
-{%- if section.settings.image != blank -%}
-  <div class="banner__media media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    {%- liquid
-      assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
-      assign image_class = 'banner__media-image-half'
-      assign sizes = full_width
-    -%}
-    {{
-      section.settings.image
-      | image_url: width: 3840
-      | image_tag:
-        width: section.settings.image.width,
-        height: image_height,
-        class: image_class,
-        sizes: sizes,
-        widths: widths,
-        fetchpriority: fetch_priority
-    }}
-  </div>
-{%- endif -%}
 <div class="main-us-map color-{{ section.settings.color_scheme }}">
+  {%- if section.settings.image != blank -%}
+    <div class="banner__media media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {%- liquid
+        assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
+        assign image_class = 'banner__media-image-half'
+        assign sizes = full_width
+      -%}
+      {{
+        section.settings.image
+        | image_url: width: 3840
+        | image_tag:
+          width: section.settings.image.width,
+          height: image_height,
+          class: image_class,
+          sizes: sizes,
+          widths: widths,
+          fetchpriority: fetch_priority
+      }}
+    </div>
+  {%- endif -%}
   <div id="info-box"></div>
   <svg xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="us-map" preserveAspectRatio="xMinYMin meet" sodipodi:docname="Republican_Party_presidential_primaries_results,_2016.svg" inkscape:version="0.91 r13725" x="0px" y="0px" width="959px" height="593px" viewBox="174 100 959 593" enable-background="new 174 100 959 593" xml:space="preserve">
     <g id="g5">
@@ -129,7 +129,7 @@
       {
         "type": "image_picker",
         "id": "image",
-        "label": "t:sections.us-map.settings.image.label"
+        "label": "t:sections.us-map.settings.us_map.label"
       }
     ],
     "presets": [
