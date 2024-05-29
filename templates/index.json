@@ -49,8 +49,14 @@
     },
     "us_map": {
       "type": "us-map",
-      "custom_css": [],
-      "settings": {}
+      "custom_css": [
+
+      ],
+      "settings": {
+        "us_map": "",
+        "color_scheme": "",
+        "image": "shopify:\/\/shop_images\/database-landing-page.jpg"
+      }
     },
     "rich_text": {
       "type": "rich-text",
