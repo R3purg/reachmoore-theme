@@ -1,5 +1,6 @@
 #us-map {
 	display: flex;
+	z-index: 1;
 }
 
 path:hover, circle:hover {
