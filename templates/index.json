@@ -6,21 +6,21 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
+            "heading": "Discover the Power of Data with <strong>ReachMoore<\/strong>!",
             "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text": "",
             "text_style": "body"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
+            "button_label_1": "Explore",
             "button_link_1": "shopify:\/\/collections\/all",
             "button_style_secondary_1": true,
             "button_label_2": "",
@@ -36,13 +36,13 @@
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/database-landing-page.jpg",
-        "image_overlay_opacity": 40,
+        "image_overlay_opacity": 0,
         "image_height": "small",
         "desktop_content_position": "bottom-center",
         "show_text_box": true,
         "desktop_content_alignment": "center",
         "color_scheme": "scheme-3",
-        "image_behavior": "zoom-in",
+        "image_behavior": "fixed",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -55,7 +55,10 @@
       ],
       "settings": {
         "us_map": "",
-        "color_scheme": ""
+        "color_scheme": "",
+        "image": "shopify:\/\/shop_images\/database-landing-page.jpg",
+        "image_overlay_opacity": 0,
+        "image_behavior": "fixed"
       }
     },
     "rich_text": {
@@ -64,14 +67,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Talk about your brand",
+            "heading": "<strong>About Us<\/strong>",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "text": "<p>Did you know? We have an extensive database containing detailed information on over 1 thousand records across different US states.<\/p><p>Our comprehensive data empowers your business to make informed decisions, identify new opportunities, and drive growth.<\/p><p>Partner with us to leverage the full potential of data-driven strategies!<\/p>"
           }
         }
       },
@@ -116,63 +119,20 @@
         "padding_bottom": 36
       }
     },
-    "collage": {
-      "type": "collage",
-      "blocks": {
-        "collection-0": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "product": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "second_image": false
-          }
-        },
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
-      ],
-      "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "card_styles": "product-card-wrapper",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "enable_video_looping": false,
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
+    "multicolumn_F3A3UA": {
       "type": "multicolumn",
       "blocks": {
-        "column1": {
+        "column_HYgFgH": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Alabama.png",
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_z6rRUa": {
           "type": "column",
           "settings": {
             "title": "Column",
@@ -181,16 +141,7 @@
             "link": ""
           }
         },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
+        "column_gq7YVW": {
           "type": "column",
           "settings": {
             "title": "Column",
@@ -201,21 +152,21 @@
         }
       },
       "block_order": [
-        "column1",
-        "column2",
-        "column3"
+        "column_HYgFgH",
+        "column_z6rRUa",
+        "column_gq7YVW"
       ],
       "settings": {
-        "title": "",
-        "heading_size": "h1",
+        "title": "Discover the Power of Data with <strong>ReachMoore<\/strong>!",
+        "heading_size": "h2",
         "image_width": "third",
-        "image_ratio": "adapt",
+        "image_ratio": "circle",
         "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "none",
-        "button_label": "",
+        "button_label": "Explore",
         "button_link": "",
-        "color_scheme": "scheme-1",
+        "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
@@ -228,8 +179,6 @@
     "us_map",
     "rich_text",
     "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "multicolumn_F3A3UA"
   ]
 }
