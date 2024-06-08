@@ -100,8 +100,8 @@
             "image": "shopify:\/\/shop_images\/Alabama.png",
             "title": "Alabama",
             "text": "<p>Detailed profiles of 10 businesses.<\/p>",
-            "link_label": "",
-            "link": ""
+            "link_label": "Click Here",
+            "link": "shopify:\/\/products\/al"
           }
         },
         "column_z6rRUa": {
@@ -110,8 +110,8 @@
             "image": "shopify:\/\/shop_images\/Alaska.png",
             "title": "Alaska",
             "text": "<p>Detailed profiles of 1 business.<\/p>",
-            "link_label": "",
-            "link": ""
+            "link_label": "Click Here",
+            "link": "shopify:\/\/products\/ak"
           }
         },
         "column_gq7YVW": {
@@ -120,8 +120,8 @@
             "image": "shopify:\/\/shop_images\/Arkansas.png",
             "title": "Arkansas",
             "text": "<p>Detailed profiles of 6 businesses.<\/p>",
-            "link_label": "",
-            "link": ""
+            "link_label": "Click Here",
+            "link": "shopify:\/\/products\/ar"
           }
         }
       },
@@ -138,8 +138,8 @@
         "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "none",
-        "button_label": "Explore",
-        "button_link": "",
+        "button_label": "Explore Datasets By State",
+        "button_link": "shopify:\/\/collections\/data-by-state",
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
@@ -156,8 +156,8 @@
             "image": "shopify:\/\/shop_images\/Restaurants.png",
             "title": "Restaurants",
             "text": "<p>Detailed profiles of 2 businesses.<\/p>",
-            "link_label": "",
-            "link": ""
+            "link_label": "Click Here",
+            "link": "shopify:\/\/products\/usa-restaurants-company-insight-report-usa-restaurants-business-info-file-market-analysis-data-for-restaurants-in-usa"
           }
         },
         "column_GRi6Hi": {
@@ -166,8 +166,8 @@
             "image": "shopify:\/\/shop_images\/BeautySalons.png",
             "title": "Beauty Salons",
             "text": "<p>Detailed profiles of 4 businesses.<\/p>",
-            "link_label": "",
-            "link": ""
+            "link_label": "Click Here",
+            "link": "shopify:\/\/products\/usa-beauty-salons-business-info-file-usa-beauty-salons-sector-insights-file-usa-company-insight-report-for-beauty-salons"
           }
         },
         "column_taUb3G": {
@@ -176,8 +176,8 @@
             "image": "shopify:\/\/shop_images\/Chiropractors_ChiropracticServices.png",
             "title": "Chiropractors & Chiropractic Services",
             "text": "<p>Detailed profiles of 6 businesses.<\/p>",
-            "link_label": "",
-            "link": ""
+            "link_label": "Click Here",
+            "link": "shopify:\/\/products\/chiropractors-chiropractic-services-business-data-suite-usa-comprehensive-usa-chiropractors-chiropractic-services-data-file-chiropractors-chiropractic-services-market-analysis-data-usa"
           }
         }
       },
@@ -194,8 +194,8 @@
         "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "none",
-        "button_label": "Explore",
-        "button_link": "",
+        "button_label": "Explore Datasets By Industry",
+        "button_link": "shopify:\/\/collections\/data-by-industry",
         "color_scheme": "",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
