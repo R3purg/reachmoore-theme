@@ -2524,8 +2524,8 @@ product-info .loading__spinner:not(.hidden) ~ *,
 
 .header__icon,
 .header__icon--cart .icon {
-  height: 4.4rem;
-  width: 4.4rem;
+  height: 3rem;
+  width: 3rem;
   padding: 0;
 }
 
