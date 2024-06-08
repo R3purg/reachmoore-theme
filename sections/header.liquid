@@ -152,10 +152,6 @@
       if section.settings.menu != blank
         render 'header-drawer'
       endif
-
-      {% comment %} if section.settings.logo_position == 'top-center' or section.settings.menu == blank
-        render 'header-search', input_id: 'Search-In-Modal-1'
-      endif {% endcomment %}
     -%}
 
     {%- if section.settings.logo_position != 'middle-center' -%}
@@ -252,7 +248,6 @@
           </localization-form>
         {%- endif -%}
       </div>
-      {% comment %} {% render 'header-search', input_id: 'Search-In-Modal' %} {% endcomment %}
 
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
