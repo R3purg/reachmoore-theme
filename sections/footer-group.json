@@ -10,17 +10,33 @@
           "settings": {
             "show_social": true
           }
+        },
+        "link_list_BK8DtQ": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Main Menu",
+            "menu": "main-menu"
+          }
+        },
+        "link_list_FPGHrc": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Explore Datasets",
+            "menu": "collections"
+          }
         }
       },
       "block_order": [
-        "brand_information_KcmaaG"
+        "brand_information_KcmaaG",
+        "link_list_BK8DtQ",
+        "link_list_FPGHrc"
       ],
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": false,
         "newsletter_heading": "Subscribe to our emails",
         "enable_follow_on_shop": false,
-        "show_social": true,
+        "show_social": false,
         "enable_country_selector": false,
         "enable_language_selector": false,
         "payment_enable": true,
