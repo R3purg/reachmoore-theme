@@ -97,7 +97,7 @@
         "column_aQcbnt": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Report.svg",
+            "image": "shopify:\/\/shop_images\/Data.svg",
             "title": "4,455",
             "text": "<p>No. of niches<\/p>",
             "link_label": "",
