@@ -142,7 +142,7 @@
         "column_p7rEy3"
       ],
       "settings": {
-        "title": "ReachMoore in numbers",
+        "title": "<strong>ReachMoore in numbers<\/strong>",
         "heading_size": "h1",
         "image_width": "third",
         "image_ratio": "adapt",
@@ -199,7 +199,7 @@
       ],
       "settings": {
         "title": "<strong>Datasets By State<\/strong>",
-        "heading_size": "h2",
+        "heading_size": "h1",
         "image_width": "third",
         "image_ratio": "circle",
         "columns_desktop": 3,
@@ -255,7 +255,7 @@
       ],
       "settings": {
         "title": "<strong>Datasets By Industry<\/strong>",
-        "heading_size": "h2",
+        "heading_size": "h1",
         "image_width": "third",
         "image_ratio": "circle",
         "columns_desktop": 3,
