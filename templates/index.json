@@ -91,6 +91,73 @@
         "padding_bottom": 0
       }
     },
+    "multicolumn_Xp8kRK": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_aQcbnt": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/data.svg",
+            "title": "4,455",
+            "text": "<p>No. of niches<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_fL6NKQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/report.svg",
+            "title": "114",
+            "text": "<p>No. of datasets<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_ryHUAt": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Users.svg",
+            "title": "1,063",
+            "text": "<p>No. of customers<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_p7rEy3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/User.svg",
+            "title": "14,445",
+            "text": "<p>No. of registered users<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_aQcbnt",
+        "column_fL6NKQ",
+        "column_ryHUAt",
+        "column_p7rEy3"
+      ],
+      "settings": {
+        "title": "ReachMoore in numbers",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "multicolumn_F3A3UA": {
       "type": "multicolumn",
       "blocks": {
@@ -208,6 +275,7 @@
     "image_banner",
     "us_map",
     "rich_text",
+    "multicolumn_Xp8kRK",
     "multicolumn_F3A3UA",
     "multicolumn_8RnKwP"
   ]
