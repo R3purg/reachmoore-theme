@@ -172,7 +172,7 @@
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 0
@@ -319,7 +319,7 @@
         "column_HYgFgH": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Alabama.png",
+            "image": "shopify:\/\/shop_images\/alabama-state-logo.png",
             "title": "Alabama",
             "text": "<p>Detailed profiles of 10 businesses.<\/p>",
             "link_label": "Click Here",
@@ -329,7 +329,7 @@
         "column_z6rRUa": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Alaska.png",
+            "image": "shopify:\/\/shop_images\/alaska-state-logo.png",
             "title": "Alaska",
             "text": "<p>Detailed profiles of 1 business.<\/p>",
             "link_label": "Click Here",
@@ -339,7 +339,7 @@
         "column_gq7YVW": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Arkansas.png",
+            "image": "shopify:\/\/shop_images\/arkansas-state-logo.png",
             "title": "Arkansas",
             "text": "<p>Detailed profiles of 6 businesses.<\/p>",
             "link_label": "Click Here",
@@ -355,16 +355,16 @@
       "settings": {
         "title": "<strong>Datasets By State<\/strong>",
         "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "circle",
+        "image_width": "full",
+        "image_ratio": "adapt",
         "columns_desktop": 3,
         "column_alignment": "center",
-        "background_style": "none",
+        "background_style": "primary",
         "button_label": "Explore Datasets By State",
         "button_link": "shopify:\/\/collections\/data-by-state",
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "columns_mobile": "1",
-        "swipe_on_mobile": false,
+        "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -375,7 +375,7 @@
         "column_wr8PT8": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Restaurants.png",
+            "image": "shopify:\/\/shop_images\/restaurants-niche-logo.png",
             "title": "Restaurants",
             "text": "<p>Detailed profiles of 2 businesses.<\/p>",
             "link_label": "Click Here",
@@ -385,7 +385,7 @@
         "column_GRi6Hi": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/BeautySalons.png",
+            "image": "shopify:\/\/shop_images\/beauty-salons-niche-logo.png",
             "title": "Beauty Salons",
             "text": "<p>Detailed profiles of 4 businesses.<\/p>",
             "link_label": "Click Here",
@@ -395,7 +395,7 @@
         "column_taUb3G": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Chiropractors_ChiropracticServices.png",
+            "image": "shopify:\/\/shop_images\/chiropractors-chiropractic-services-niche-logo.png",
             "title": "Chiropractors & Chiropractic Services",
             "text": "<p>Detailed profiles of 6 businesses.<\/p>",
             "link_label": "Click Here",
@@ -411,43 +411,15 @@
       "settings": {
         "title": "<strong>Datasets By Industry<\/strong>",
         "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "circle",
+        "image_width": "full",
+        "image_ratio": "adapt",
         "columns_desktop": 3,
         "column_alignment": "center",
-        "background_style": "none",
+        "background_style": "primary",
         "button_label": "Explore Datasets By Industry",
         "button_link": "shopify:\/\/collections\/data-by-industry",
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "featured_collection_wzHrYC": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Featured collection",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all-products",
-        "products_to_show": 18,
-        "columns_desktop": 3,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": true,
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
         "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 36
@@ -462,7 +434,6 @@
     "card_carousel_tXjfe6",
     "multicolumn_Xp8kRK",
     "multicolumn_F3A3UA",
-    "multicolumn_8RnKwP",
-    "featured_collection_wzHrYC"
+    "multicolumn_8RnKwP"
   ]
 }
