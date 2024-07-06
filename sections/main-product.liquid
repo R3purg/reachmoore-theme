@@ -124,9 +124,9 @@
                     {%- elsif cart.duties_included -%}
                       {{ 'products.product.duties_included' | t }}
                     {%- endif -%}
-                    {%- if shop.shipping_policy.body != blank -%}
+                    {% comment %} {%- if shop.shipping_policy.body != blank -%}
                       {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                    {%- endif -%}
+                    {%- endif -%} {% endcomment %}
                   </div>
                 {%- endif -%}
                 <div {{ block.shopify_attributes }}>
