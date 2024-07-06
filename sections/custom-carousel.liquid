@@ -17,7 +17,7 @@
   endif
 -%}
 
-<div class="slider-wrapper">
+<div class="slider-wrapper{% if show_mobile_slider or show_desktop_slider %} slider{% if show_desktop_slider %} slider--desktop{% endif %}{% if show_mobile_slider %} slider--tablet grid--peek{% endif %}{% endif %}">
   <div class="slider{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}">
     {% assign num_blocks = section.blocks | size %}
     {% for card in section.blocks %}
