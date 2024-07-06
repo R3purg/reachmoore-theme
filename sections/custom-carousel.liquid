@@ -1,6 +1,10 @@
 {%- liquid
   assign sections_to_display = section.blocks
 
+  if section.blocks > section.settings.sections_to_show
+    assign sections_to_display = section.settings.sections_to_show
+  endif
+
   assign columns_mobile_int = section.settings.columns_mobile | plus: 0
   assign show_mobile_slider = false
   if section.settings.swipe_on_mobile and sections_to_display > columns_mobile_int
@@ -255,6 +259,50 @@
       "type": "image_picker",
       "id": "image6",
       "label": "Image 6"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.featured-collection.settings.header_mobile.content"
+    },
+    {
+      "type": "range",
+      "id": "sections_to_show",
+      "min": 2,
+      "max": 25,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.featured-collection.settings.sections_to_show.label"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.featured-collection.settings.columns_desktop.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_desktop_slider",
+      "label": "t:sections.featured-collection.settings.enable_desktop_slider.label",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "t:sections.featured-collection.settings.columns_mobile.label",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.featured-collection.settings.columns_mobile.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.featured-collection.settings.columns_mobile.options__2.label"
+        }
+      ]
     },
     {
       "type": "checkbox",
