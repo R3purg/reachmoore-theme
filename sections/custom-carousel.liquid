@@ -90,7 +90,6 @@
 <style>
   .slider-wrapper {
     margin: 0;
-    /*background-image: linear-gradient(90deg, #201A35, #0B0320);*/
     color: #fff;
     font-family: sans-serif;
     display: flex;
@@ -225,6 +224,44 @@
     z-index: 4;
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if ({{ show_mobile_slider | json }}) {
+      const slider = document.querySelector('.testimonials');
+      let startX = 0;
+      let endX = 0;
+
+      slider.addEventListener('touchstart', function(e) {
+        startX = e.changedTouches[0].clientX;
+      });
+
+      slider.addEventListener('touchend', function(e) {
+        endX = e.changedTouches[0].clientX;
+        if (startX > endX) {
+          // Swipe left
+          document.querySelector('.slider-button--next').click();
+        } else if (startX < endX) {
+          // Swipe right
+          document.querySelector('.slider-button--prev').click();
+        }
+      });
+
+      // For desktop slider buttons
+      document.querySelector('.slider-button--next').addEventListener('click', function() {
+        let checkedInput = document.querySelector('.slider input:checked');
+        let nextInput = checkedInput.nextElementSibling || document.querySelector('.slider input:first-child');
+        nextInput.checked = true;
+      });
+
+      document.querySelector('.slider-button--prev').addEventListener('click', function() {
+        let checkedInput = document.querySelector('.slider input:checked');
+        let prevInput = checkedInput.previousElementSibling || document.querySelector('.slider input:last-child');
+        prevInput.checked = true;
+      });
+    }
+  });
+</script>
 
 {% schema %}
 {
