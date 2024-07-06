@@ -1,5 +1,24 @@
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+    @media screen and (min-width: 1400px) {
+      #shopify-section-template--16898284191796__image_banner {
+        height: 280px;
+      }
+    }
+  
+    @media screen and (min-width: 750px) {
+      #shopify-section-template--16898284191796__image_banner {
+        height: 230px;
+      }
+    }
 
+    @media screen and (min-width: 750px) {
+      .banner__content {
+        padding: 0px;
+      }
+    }
+{%- endstyle -%}
+      
 {%- if section.settings.image_height == 'adapt' and section.settings.image != blank -%}
   {%- style -%}
     @media screen and (max-width: 749px) {
@@ -27,6 +46,15 @@
   #Banner-{{ section.id }}::after {
     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
   }
+
+  @media screen and (min-width: 1400px) {
+    #shopify-section-template--16898284191796__image_banner {
+      height: 250px;
+    .banner__content {
+      padding-top: 0px;
+    }
+  }
+}
 {%- endstyle -%}
 
 {%- liquid

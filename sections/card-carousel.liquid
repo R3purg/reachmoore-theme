@@ -1,0 +1,235 @@
+<div class="card-carousel-container">
+    <div class="carousel-heading">
+        <h2 class="{{ section.settings.heading_size }}">{{ section.settings.heading_text }}</h2>
+    </div>
+    <div class="card-carousel">
+        {% for card in section.blocks %}
+        <div class="card">
+            <img src="{{ card.settings.image | img_url: '400x400' }}" alt="{{ card.settings.image.alt }}">
+            <h3>{{ card.settings.title }}</h3>
+            <p>{{ card.settings.description }}</p>
+            <a href="{{ card.settings.link_url }}">{{ card.settings.link_text }}</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = Array.from(document.querySelectorAll('.card-carousel .card'));
+    let currentIndex = 0;
+    let interval;
+
+    function showNextCard() {
+        cards.forEach((card, index) => {
+            card.style.display = 'none'; // Hide all cards initially
+            card.classList.remove('visible', 'pop-out');
+        });
+
+        const nextCard = cards[currentIndex];
+        nextCard.style.display = 'flex'; // Show the next card
+        setTimeout(() => {
+            nextCard.classList.add('visible'); // Trigger the CSS transition for visibility
+            nextCard.classList.add('pop-out'); // Apply the animation effect
+        }, 10); // Slight delay to ensure the display property is applied
+
+        // Move to the next card index
+        currentIndex = (currentIndex + 1) % cards.length;
+    }
+
+    function startCarousel() {
+        showNextCard();
+        interval = setInterval(showNextCard, 2000); // Change every 2 seconds
+    }
+
+    function stopCarousel() {
+        clearInterval(interval);
+    }
+
+    // Initialize the carousel
+    startCarousel();
+
+    // Pause animation on hover
+    document.querySelector('.card-carousel').addEventListener('mouseover', stopCarousel);
+    document.querySelector('.card-carousel').addEventListener('mouseout', startCarousel);
+});
+</script>
+
+<style>
+.card-carousel-container {
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.carousel-heading h2 {
+    margin-bottom: 10px;
+}
+
+.carousel-heading h2.small {
+    font-size: 1.5em;
+}
+
+.carousel-heading h2.medium {
+    font-size: 2em;
+}
+
+.carousel-heading h2.large {
+    font-size: 2.5em;
+}
+
+.card-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px; /* Adjust based on your card content */
+    position: relative;
+    overflow: hidden;
+}
+
+.card {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.card img {
+    width: 100px; /* Adjust as needed */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.card h3, .card p, .card a {
+    margin: 10px 0;
+}
+
+.card a {
+    color: blue;
+    text-decoration: none;
+}
+
+.card.visible {
+    opacity: 1;
+    transition: opacity 1.5s ease;
+}
+
+.card.pop-out {
+    transform: scale(1.1);
+    animation: pop-in-out 2s forwards;
+}
+
+@keyframes pop-in-out {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    25% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    75% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .card-carousel-container {
+        padding: 10px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Card Carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading Text",
+      "default": "Our Featured Products"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "default": "medium",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "Click Here ->"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Card carousel",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
