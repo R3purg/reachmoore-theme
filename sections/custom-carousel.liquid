@@ -29,7 +29,7 @@
     <div class="testimonials">
       {% for card in section.blocks %}
         <label
-          class="grid__item{% if show_mobile_slider or show_desktop_slider %} slider__slide{% endif %}"
+          class="item grid__item{% if show_mobile_slider or show_desktop_slider %} slider__slide{% endif %}"
           for="t-{{ forloop.index }}"
         >
           {% if card.settings.image %}
