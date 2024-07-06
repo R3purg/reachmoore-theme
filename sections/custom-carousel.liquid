@@ -18,7 +18,7 @@
 -%}
 
 <div class="slider-wrapper">
-  <div class="slider">
+  <div class="slider{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}">
     {% assign num_blocks = section.blocks | size %}
     {% for card in section.blocks %}
       <input
