@@ -141,6 +141,10 @@
         "image4": "shopify:\/\/shop_images\/BeautySalons.png",
         "image5": "shopify:\/\/shop_images\/Chiropractors_ChiropracticServices.png",
         "image6": "shopify:\/\/shop_images\/Alaska.png",
+        "sections_to_show": 4,
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "columns_mobile": "2",
         "swipe_on_mobile": true
       }
     },
