@@ -10,7 +10,7 @@ class HTMLUpdateUtility {
   #preProcessCallbacks = [];
   #postProcessCallbacks = [];
 
-  constructor() {}
+  constructor() { }
 
   addPreProcessCallback(callback) {
     this.#preProcessCallbacks.push(callback);
@@ -710,7 +710,6 @@ class SliderComponent extends HTMLElement {
 
   update() {
     // Temporarily prevents unneeded updates resulting from variant changes
-    // This should be refactored as part of https://github.com/Shopify/dawn/issues/2057
     if (!this.slider || !this.nextButton) return;
 
     const previousPage = this.currentPage;
@@ -996,7 +995,7 @@ class SlideshowComponent extends SliderComponent {
     const slideScrollPosition =
       this.slider.scrollLeft +
       this.sliderFirstItemNode.clientWidth *
-        (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
+      (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
     this.slider.scrollTo({
       left: slideScrollPosition,
     });
@@ -1043,7 +1042,7 @@ class VariantSelects extends HTMLElement {
     this.toggleAddButton(true, '', false);
     this.removeErrorMessage();
 
-    let callback = () => {};
+    let callback = () => { };
     if (this.dataset.url !== targetUrl) {
       this.updateURL(targetUrl);
       this.updateShareUrl(targetUrl);
