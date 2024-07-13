@@ -15,6 +15,9 @@
   if section.settings.enable_desktop_slider and sections_to_display > section.settings.columns_desktop
     assign show_desktop_slider = true
   endif
+
+  assign total_blocks = section.blocks | size
+  assign middle_index = total_blocks | divided_by: 2 | plus: 1
 -%}
 
 <div class="slider-wrapper{% if show_mobile_slider or show_desktop_slider %} slider{% if show_desktop_slider %} slider--desktop{% endif %}{% if show_mobile_slider %} slider--tablet grid--peek{% endif %}{% endif %}">
@@ -24,7 +27,7 @@
         type="radio"
         name="testimonial"
         id="t-{{ forloop.index }}"
-        {% if forloop.index == 1 %}
+        {% if forloop.index == middle_index %}
           checked
         {% endif %}
       >
