@@ -1,7 +1,7 @@
 {%- liquid
-  assign sections_to_display = section.blocks
+  assign sections_to_display = section.blocks.size
 
-  if section.blocks > section.settings.sections_to_show
+  if sections_to_display > section.settings.sections_to_show
     assign sections_to_display = section.settings.sections_to_show
   endif
 
@@ -19,13 +19,12 @@
 
 <div class="slider-wrapper{% if show_mobile_slider or show_desktop_slider %} slider{% if show_desktop_slider %} slider--desktop{% endif %}{% if show_mobile_slider %} slider--tablet grid--peek{% endif %}{% endif %}">
   <div class="slider{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}">
-    {% assign num_blocks = section.blocks | size %}
     {% for card in section.blocks %}
       <input
         type="radio"
         name="testimonial"
         id="t-{{ forloop.index }}"
-        {% if forloop.index == 3 %}
+        {% if forloop.index == 1 %}
           checked
         {% endif %}
       >
@@ -52,39 +51,11 @@
       {% endfor %}
     </div>
     <div class="dots">
-      {% for i in (1..num_blocks) %}
+      {% for i in (1..sections_to_display) %}
         <label for="t-{{ i }}"></label>
       {% endfor %}
     </div>
   </div>
-  {%- if show_mobile_slider or show_desktop_slider -%}
-    <div class="slider-buttons">
-      <button
-        type="button"
-        class="slider-button slider-button--prev"
-        name="previous"
-        aria-label="{{ 'general.slider.previous_slide' | t }}"
-        aria-controls="Slider-{{ section.id }}"
-      >
-        {% render 'icon-caret' %}
-      </button>
-      <div class="slider-counter caption">
-        <span class="slider-counter--current">1</span>
-        <span aria-hidden="true"> / </span>
-        <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-        <span class="slider-counter--total">{{ products_to_display }}</span>
-      </div>
-      <button
-        type="button"
-        class="slider-button slider-button--next"
-        name="next"
-        aria-label="{{ 'general.slider.next_slide' | t }}"
-        aria-controls="Slider-{{ section.id }}"
-      >
-        {% render 'icon-caret' %}
-      </button>
-    </div>
-  {%- endif -%}
 </div>
 
 <style>
@@ -227,6 +198,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // Swipe functionality for mobile
     if ({{ show_mobile_slider | json }}) {
       const slider = document.querySelector('.testimonials');
       let startX = 0;
@@ -240,24 +212,15 @@
         endX = e.changedTouches[0].clientX;
         if (startX > endX) {
           // Swipe left
-          document.querySelector('.slider-button--next').click();
+          let checkedInput = document.querySelector('.slider input:checked');
+          let nextInput = checkedInput.nextElementSibling || document.querySelector('.slider input:first-child');
+          nextInput.checked = true;
         } else if (startX < endX) {
           // Swipe right
-          document.querySelector('.slider-button--prev').click();
+          let checkedInput = document.querySelector('.slider input:checked');
+          let prevInput = checkedInput.previousElementSibling || document.querySelector('.slider input:last-child');
+          prevInput.checked = true;
         }
-      });
-
-      // For desktop slider buttons
-      document.querySelector('.slider-button--next').addEventListener('click', function() {
-        let checkedInput = document.querySelector('.slider input:checked');
-        let nextInput = checkedInput.nextElementSibling || document.querySelector('.slider input:first-child');
-        nextInput.checked = true;
-      });
-
-      document.querySelector('.slider-button--prev').addEventListener('click', function() {
-        let checkedInput = document.querySelector('.slider input:checked');
-        let prevInput = checkedInput.previousElementSibling || document.querySelector('.slider input:last-child');
-        prevInput.checked = true;
       });
     }
   });
@@ -268,91 +231,56 @@
   "name": "Image Carousel",
   "settings": [
     {
-      "type": "image_picker",
-      "id": "image1",
-      "label": "Image 1"
-    },
-    {
-      "type": "image_picker",
-      "id": "image2",
-      "label": "Image 2"
-    },
-    {
-      "type": "image_picker",
-      "id": "image3",
-      "label": "Image 3"
-    },
-    {
-      "type": "image_picker",
-      "id": "image4",
-      "label": "Image 4"
-    },
-    {
-      "type": "image_picker",
-      "id": "image5",
-      "label": "Image 5"
-    },
-    {
-      "type": "image_picker",
-      "id": "image6",
-      "label": "Image 6"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.featured-collection.settings.header_mobile.content"
-    },
-    {
       "type": "range",
       "id": "sections_to_show",
+      "label": "Number of Sections to Show",
+      "default": 4,
       "min": 2,
       "max": 25,
-      "step": 1,
-      "default": 4,
-      "label": "t:sections.featured-collection.settings.sections_to_show.label"
+      "step": 1
     },
     {
       "type": "range",
       "id": "columns_desktop",
+      "label": "Number of Columns on Desktop",
+      "default": 4,
       "min": 1,
       "max": 6,
-      "step": 1,
-      "default": 4,
-      "label": "t:sections.featured-collection.settings.columns_desktop.label"
+      "step": 1
     },
     {
       "type": "checkbox",
       "id": "enable_desktop_slider",
-      "label": "t:sections.featured-collection.settings.enable_desktop_slider.label",
+      "label": "Enable Slider on Desktop",
       "default": false
     },
     {
       "type": "select",
       "id": "columns_mobile",
+      "label": "Number of Columns on Mobile",
       "default": "2",
-      "label": "t:sections.featured-collection.settings.columns_mobile.label",
       "options": [
         {
           "value": "1",
-          "label": "t:sections.featured-collection.settings.columns_mobile.options__1.label"
+          "label": "1 Column"
         },
         {
           "value": "2",
-          "label": "t:sections.featured-collection.settings.columns_mobile.options__2.label"
+          "label": "2 Columns"
         }
       ]
     },
     {
       "type": "checkbox",
       "id": "swipe_on_mobile",
-      "default": false,
-      "label": "t:sections.featured-collection.settings.swipe_on_mobile.label"
+      "label": "Enable Swipe on Mobile",
+      "default": false
     }
   ],
   "blocks": [
     {
       "type": "card",
       "name": "Card",
-      "limit": 5,
       "settings": [
         {
           "type": "image_picker",
@@ -385,7 +313,7 @@
   ],
   "presets": [
     {
-      "name": "Custom carousel",
+      "name": "Custom Carousel",
       "category": "Custom"
     }
   ]
