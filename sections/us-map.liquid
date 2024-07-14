@@ -7,7 +7,7 @@
   .main-us-map {
     display: flex;
     position: relative;
-    flex-direction: row;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
   }
@@ -44,9 +44,9 @@
   endif
 -%}
 
-<div class="main-us-map color-{{ section.settings.color_scheme }}">
+<div class="main-us-map content-container content-container--full-width-mobile gradient color-{{ section.settings.color_scheme }}">
   {%- unless section.settings.title == blank -%}
-    <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin multicolumn__title">
+    <div class="banner__box title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin multicolumn__title">
       <h2 class="title inline-richtext {{ section.settings.heading_size }}">
         {{ section.settings.title }}
       </h2>
