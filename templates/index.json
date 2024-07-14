@@ -295,7 +295,8 @@
             "title": "Email Campaigns",
             "text": "<p>Efficiently connect via email using verified addresses.<\/p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "color_scheme_block": "scheme-113d8947-26d9-4d8f-8c2c-54538f8c519c"
           }
         },
         "column_VGrMXn": {
@@ -304,7 +305,8 @@
             "title": "Mail Campaigns",
             "text": "<p>Precision-target potential clients with physical mail.<\/p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "color_scheme_block": ""
           }
         },
         "column_cHF8tf": {
@@ -313,7 +315,8 @@
             "title": "Cold Calls",
             "text": "<p>Engage directly with prospects using verified phone numbers.<\/p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "color_scheme_block": ""
           }
         }
       },
@@ -325,16 +328,8 @@
       "settings": {
         "title": "Sticky Multicolumn",
         "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "left",
         "background_style": "primary",
-        "button_label": "Button label",
-        "button_link": "",
         "color_scheme": "scheme-2",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
       }
