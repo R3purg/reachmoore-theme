@@ -1,6 +1,7 @@
 {%- style -%}
   .card {
     width: 80%;
+    position: -webkit-sticky;
     position: sticky;
     background: white;
     border-radius: 4px;
@@ -70,8 +71,8 @@
 
   .sticky {
     display: flex;
-    position: sticky;
     position: -webkit-sticky;
+    position: sticky;
     flex-direction: column;
   }
 
@@ -117,7 +118,7 @@
     {%- for block in section.blocks -%}
       <div
         id="Slide-{{ section.id }}-{{ forloop.index }}"
-        class="card color-{{ section.settings.color_scheme }}"
+        class="card color-{{ block.settings.color_scheme_block }}"
         {{ block.shopify_attributes }}
         {% if settings.animations_reveal_on_scroll %}
           data-cascade
