@@ -174,6 +174,54 @@
         "padding_bottom": 0
       }
     },
+    "sticky_multicolumn_UB7P7A": {
+      "type": "sticky-multicolumn",
+      "blocks": {
+        "column_BEbFE4": {
+          "type": "column",
+          "settings": {
+            "title": "Email Campaigns",
+            "text": "<p>Efficiently connect via email using verified addresses.<\/p>",
+            "link_label": "",
+            "link": "",
+            "color_scheme_block": "scheme-113d8947-26d9-4d8f-8c2c-54538f8c519c"
+          }
+        },
+        "column_VGrMXn": {
+          "type": "column",
+          "settings": {
+            "title": "Mail Campaigns",
+            "text": "<p>Precision-target potential clients with physical mail.<\/p>",
+            "link_label": "",
+            "link": "",
+            "color_scheme_block": "scheme-113d8947-26d9-4d8f-8c2c-54538f8c519c"
+          }
+        },
+        "column_cHF8tf": {
+          "type": "column",
+          "settings": {
+            "title": "Cold Calls",
+            "text": "<p>Engage directly with prospects using verified phone numbers.<\/p>",
+            "link_label": "",
+            "link": "",
+            "color_scheme_block": "scheme-113d8947-26d9-4d8f-8c2c-54538f8c519c"
+          }
+        }
+      },
+      "block_order": [
+        "column_BEbFE4",
+        "column_VGrMXn",
+        "column_cHF8tf"
+      ],
+      "settings": {
+        "title": "<strong>Explore the versatility of ReachMoore's state-specific business datasets, optimized for effective outreach strategies:<\/strong>",
+        "heading_size": "h1",
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "multicolumn_F3A3UA": {
       "type": "multicolumn",
       "blocks": {
@@ -285,54 +333,6 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "sticky_multicolumn_UB7P7A": {
-      "type": "sticky-multicolumn",
-      "blocks": {
-        "column_BEbFE4": {
-          "type": "column",
-          "settings": {
-            "title": "Email Campaigns",
-            "text": "<p>Efficiently connect via email using verified addresses.<\/p>",
-            "link_label": "",
-            "link": "",
-            "color_scheme_block": "scheme-113d8947-26d9-4d8f-8c2c-54538f8c519c"
-          }
-        },
-        "column_VGrMXn": {
-          "type": "column",
-          "settings": {
-            "title": "Mail Campaigns",
-            "text": "<p>Precision-target potential clients with physical mail.<\/p>",
-            "link_label": "",
-            "link": "",
-            "color_scheme_block": ""
-          }
-        },
-        "column_cHF8tf": {
-          "type": "column",
-          "settings": {
-            "title": "Cold Calls",
-            "text": "<p>Engage directly with prospects using verified phone numbers.<\/p>",
-            "link_label": "",
-            "link": "",
-            "color_scheme_block": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_BEbFE4",
-        "column_VGrMXn",
-        "column_cHF8tf"
-      ],
-      "settings": {
-        "title": "Sticky Multicolumn",
-        "heading_size": "h1",
-        "background_style": "primary",
-        "color_scheme": "scheme-2",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
@@ -340,8 +340,8 @@
     "us_map",
     "custom_carousel_ahQdkx",
     "rich_text",
+    "sticky_multicolumn_UB7P7A",
     "multicolumn_F3A3UA",
-    "multicolumn_8RnKwP",
-    "sticky_multicolumn_UB7P7A"
+    "multicolumn_8RnKwP"
   ]
 }
