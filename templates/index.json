@@ -28,6 +28,7 @@
         },
         "button": {
           "type": "buttons",
+          "disabled": true,
           "settings": {
             "button_label_1": "Explore Datasets",
             "button_link_1": "shopify:\/\/collections\/all",
@@ -222,6 +223,48 @@
         "padding_bottom": 36
       }
     },
+    "rich_text_kYGf9V": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_idNTa4": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>ReachMoore<\/strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_N8F6xQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Harness the power of ReachMoore’s comprehensive business data solutions to enhance your email campaigns, mail campaigns, and cold calling efforts effectively.<\/p>"
+          }
+        },
+        "button_ygDq8P": {
+          "type": "button",
+          "settings": {
+            "button_label": "Explore Datasets",
+            "button_link": "shopify:\/\/collections\/all",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_idNTa4",
+        "text_N8F6xQ",
+        "button_ygDq8P"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "multicolumn_F3A3UA": {
       "type": "multicolumn",
       "blocks": {
@@ -341,6 +384,7 @@
     "custom_carousel_ahQdkx",
     "rich_text",
     "sticky_multicolumn_UB7P7A",
+    "rich_text_kYGf9V",
     "multicolumn_F3A3UA",
     "multicolumn_8RnKwP"
   ]
