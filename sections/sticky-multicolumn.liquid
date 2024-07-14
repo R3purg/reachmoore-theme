@@ -11,61 +11,61 @@
 
   .card:nth-child(1) {
     top: 11rem;
-    bottom: 11rem;
+    bottom: 0;
     transform: rotate(1deg);
   }
 
   .card:nth-child(2) {
-    top: 12rem;
-    bottom: 12rem;
+    top: 15rem;
+    bottom: 0;
     transform: rotate(2deg);
   }
 
   .card:nth-child(3) {
-    top: 13rem;
-    bottom: 13rem;
+    top: 19rem;
+    bottom: 0;
     transform: rotate(3deg);
   }
 
   .card:nth-child(4) {
-    top: 14rem;
-    bottom: 14rem;
+    top: 23rem;
+    bottom: 0;
     transform: rotate(4deg);
   }
 
   .card:nth-child(5) {
-    top: 15rem;
-    bottom: 15rem;
+    top: 25rem;
+    bottom: 0;
     transform: rotate(5deg);
   }
 
   .card:nth-child(6) {
-    top: 16rem;
-    bottom: 16rem;
+    top: 29rem;
+    bottom: 0;
     transform: rotate(6deg);
   }
 
   .card:nth-child(7) {
-    top: 17rem;
-    bottom: 17rem;
+    top: 33rem;
+    bottom: 0;
     transform: rotate(7deg);
   }
 
   .card:nth-child(8) {
-    top: 18rem;
-    bottom: 18rem;
+    top: 37rem;
+    bottom: 0;
     transform: rotate(8deg);
   }
 
   .card:nth-child(9) {
-    top: 19rem;
-    bottom: 19rem;
+    top: 41rem;
+    bottom: 0;
     transform: rotate(9deg);
   }
 
   .card:nth-child(10) {
-    top: 20rem;
-    bottom: 20rem;
+    top: 45rem;
+    bottom: 0;
     transform: rotate(10deg);
   }
 
@@ -102,7 +102,24 @@
 -%}
 
 <div class="multicolumn color-{{ section.settings.color_scheme }} {% unless section.settings.background_style == 'none' and settings.text_boxes_border_thickness > 0 or settings.text_boxes_shadow_opacity > 0 %} background-{{ section.settings.background_style }}{% endunless %}{% if section.settings.title == blank %} no-heading{% endif %}">
-  <div class="page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} sticky">
+  {%- unless section.settings.title == blank -%}
+    <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin multicolumn__title">
+      <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+        {{ section.settings.title }}
+      </h2>
+      {%- if section.settings.button_label != blank and show_mobile_slider -%}
+        <a href="{{ section.settings.button_link }}" class="link underlined-link large-up-hide">
+          {{- section.settings.button_label | escape -}}
+        </a>
+      {%- endif -%}
+    </div>
+  {%- endunless -%}
+  <div
+    class="page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} sticky"
+    {% if settings.animations_reveal_on_scroll %}
+      data-cascade
+    {% endif %}
+  >
     {%- for block in section.blocks -%}
       <div
         id="Slide-{{ section.id }}-{{ forloop.index }}"
@@ -114,6 +131,48 @@
         {% endif %}
       >
         <div class="multicolumn-card content-container">
+          {%- if block.settings.image != blank -%}
+            {% if section.settings.image_ratio == 'adapt' or section.settings.image_ratio == 'circle' %}
+              {% assign spaced_image = true %}
+            {% endif %}
+            <div class="multicolumn-card__image-wrapper multicolumn-card__image-wrapper--{{ section.settings.image_width }}-width{% if section.settings.image_width != 'full' or spaced_image %} multicolumn-card-spacing{% endif %}">
+              <div
+                class="media media--transparent media--{{ section.settings.image_ratio }}"
+                {% if section.settings.image_ratio == 'adapt' %}
+                  style="padding-bottom: {{ 1 | divided_by: highest_ratio | times: 100 }}%;"
+                {% endif %}
+              >
+                {%- liquid
+                  assign number_of_columns = section.settings.columns_desktop
+                  assign number_of_columns_mobile = section.settings.columns_mobile
+                  assign grid_space_desktop = number_of_columns | minus: 1 | times: settings.spacing_grid_horizontal | plus: 100 | append: 'px'
+                  assign grid_space_tablet = number_of_columns_mobile | minus: 1 | times: settings.spacing_grid_horizontal | plus: 100 | append: 'px'
+                  assign grid_space_mobile = number_of_columns_mobile | minus: 1 | times: settings.spacing_grid_horizontal | divided_by: 2 | plus: 30 | append: 'px'
+                  if section.settings.image_width == 'half'
+                    assign image_width = 0.5
+                  elsif section.settings.image_width == 'third'
+                    assign image_width = 0.33
+                  else
+                    assign image_width = 1
+                  endif
+                -%}
+                {% capture sizes %}
+                  (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width }}px - {{ grid_space_desktop }}) * {{ image_width }} /  {{ number_of_columns }}),
+                  (min-width: 990px) calc((100vw - {{ grid_space_desktop }}) * {{ image_width }} / {{ number_of_columns }}),
+                  (min-width: 750px) calc((100vw - {{ grid_space_tablet }}) * {{ image_width }} / {{ number_of_columns_mobile }}),
+                  calc((100vw - {{ grid_space_mobile }}) * {{ image_width }} / {{ number_of_columns_mobile }})
+                {% endcapture %}
+                {{
+                  block.settings.image
+                  | image_url: width: 3200
+                  | image_tag:
+                    widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
+                    sizes: sizes,
+                    class: 'multicolumn-card__image'
+                }}
+              </div>
+            </div>
+          {%- endif -%}
           <div class="multicolumn-card__info">
             {%- if block.settings.title != blank -%}
               <h3 class="inline-richtext">{{ block.settings.title }}</h3>
