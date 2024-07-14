@@ -68,8 +68,8 @@
       "settings": {
         "us_map": "",
         "title": "Get instant access to a treasure of business emails, phone numbers, and addresses. Choose your state, download an Excel file, and kickstart your marketing campaigns effortlessly. With ReachMoore, finding the right contacts has never been easier. Start reaching more customers today!",
-        "heading_size": "h1",
-        "color_scheme": "scheme-1",
+        "heading_size": "h2",
+        "color_scheme": "scheme-3",
         "image": "shopify:\/\/shop_images\/data-purple.jpg",
         "image_overlay_opacity": 0,
         "image_behavior": "fixed"
