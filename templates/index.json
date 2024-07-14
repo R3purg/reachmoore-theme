@@ -22,8 +22,8 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "",
-            "text_style": "body"
+            "text": "Get instant access to a treasure of business emails, phone numbers, and addresses. Choose your state, download an Excel file, and kickstart your marketing campaigns effortlessly. With ReachMoore, finding the right contacts has never been easier. Start reaching more customers today!",
+            "text_style": "subtitle"
           }
         },
         "button": {
@@ -68,7 +68,7 @@
       ],
       "settings": {
         "us_map": "",
-        "title": "Get instant access to a treasure of business emails, phone numbers, and addresses. Choose your state, download an Excel file, and kickstart your marketing campaigns effortlessly. With ReachMoore, finding the right contacts has never been easier. Start reaching more customers today!",
+        "title": "",
         "heading_size": "h2",
         "color_scheme": "scheme-3",
         "image": "shopify:\/\/shop_images\/data-purple.jpg",
@@ -158,7 +158,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Did you know? We have an extensive database containing detailed information on over 1 thousand records across different US states.<\/p><p>Our comprehensive data empowers your business to make informed decisions, identify new opportunities, and drive growth.<\/p><p>Partner with us to leverage the full potential of data-driven strategies!<\/p>"
+            "text": "<p>Explore the versatility of ReachMoore's state-specific business datasets, optimized for effective outreach strategies:<\/p>"
           }
         }
       },
@@ -215,7 +215,7 @@
         "column_cHF8tf"
       ],
       "settings": {
-        "title": "<strong>Explore the versatility of ReachMoore's state-specific business datasets, optimized for effective outreach strategies:<\/strong>",
+        "title": "",
         "heading_size": "h1",
         "background_style": "primary",
         "color_scheme": "scheme-2",
@@ -229,7 +229,7 @@
         "heading_idNTa4": {
           "type": "heading",
           "settings": {
-            "heading": "<strong>ReachMoore<\/strong>",
+            "heading": "",
             "heading_size": "h1"
           }
         },
@@ -311,7 +311,7 @@
         "image_ratio": "adapt",
         "columns_desktop": 3,
         "column_alignment": "center",
-        "background_style": "primary",
+        "background_style": "none",
         "button_label": "Explore Datasets By State",
         "button_link": "shopify:\/\/collections\/data-by-state",
         "color_scheme": "scheme-2",
@@ -367,7 +367,7 @@
         "image_ratio": "adapt",
         "columns_desktop": 3,
         "column_alignment": "center",
-        "background_style": "primary",
+        "background_style": "none",
         "button_label": "Explore Datasets By Industry",
         "button_link": "shopify:\/\/collections\/data-by-industry",
         "color_scheme": "scheme-2",
