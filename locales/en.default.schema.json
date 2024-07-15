@@ -700,6 +700,18 @@
         "name": "US Map"
       }
     },
+    "dropdown": {
+      "name": "Dropdown",
+      "settings": {
+        "dropdown": {
+          "label": "Dropdown",
+          "info": "Dropdown"
+        }
+      },
+      "presets": {
+        "name": "Dropdown"
+      }
+    },
     "card-carousel": {
       "name": "Card Carousel",
       "settings": {
