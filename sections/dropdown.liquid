@@ -1,16 +1,9 @@
 {%- style -%}
-  body {
-    background: #4aa6fb;
-    display: flex;
-    font-family: sans-serif;
-    justify-content: center;
-    margin: 0;
-  }
-
   .dots {
     display: flex;
     margin-top: 30px;
     padding: 10px;
+    position: relative;
   }
 
   .cut {
@@ -173,10 +166,11 @@
     transform: translateX(-50%);
     transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
     width: 325px;
+    top: 0;
   }
 
   .dot {
-    background: #fff;
+    background: #000;
     border-radius: 50%;
     height: 10px;
     margin-right: 5px;
@@ -206,6 +200,7 @@
     transform: translateX(-50%) translateY(4px);
     transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
     width: 365px;
+    top: 0;
   }
 
   .list {
@@ -285,11 +280,11 @@
 {%- endstyle -%}
 
 <div class="dots" onclick="this.classList.toggle('active');">
-  <div class="dot"></div>
-  <div class="dot"></div>
-  <div class="shadow cut"></div>
+  <div class="dot">&nbsp;</div>
+  <div class="dot">&nbsp;</div>
+  <div class="shadow cut">&nbsp;</div>
   <div class="container cut">
-    <div class="drop cut2"></div>
+    <div class="drop cut2">&nbsp;</div>
   </div>
   <div class="list">
     <ul>
