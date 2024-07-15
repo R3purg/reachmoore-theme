@@ -61,10 +61,6 @@
         "show_text_below": false
       }
     },
-    "dropdown": {
-      "type": "dropdown",
-      "settings": {}
-    },
     "us_map": {
       "type": "us-map",
       "custom_css": [
@@ -311,8 +307,8 @@
       "settings": {
         "title": "<strong>Datasets By State<\/strong>",
         "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
+        "image_width": "half",
+        "image_ratio": "square",
         "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "none",
@@ -367,8 +363,8 @@
       "settings": {
         "title": "<strong>Datasets By Industry<\/strong>",
         "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
+        "image_width": "half",
+        "image_ratio": "square",
         "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "none",
