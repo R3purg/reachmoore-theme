@@ -277,9 +277,15 @@
     top: 25px;
     width: 80px;
   }
+
+  @media screen and (min-width: 990px) {
+    .no-display-desktop {
+      display: none;
+    }
+  }
 {%- endstyle -%}
 
-<div class="dots" onclick="this.classList.toggle('active');">
+<div class="no-display-desktop dots" onclick="this.classList.toggle('active');">
   <div class="dot">&nbsp;</div>
   <div class="dot">&nbsp;</div>
   <div class="shadow cut">&nbsp;</div>

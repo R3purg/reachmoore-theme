@@ -28,6 +28,12 @@
     display: flex;
     justify-content: center;
   }
+
+  @media screen and (max-width: 990px) {
+    .no-display-tablet {
+      display: none;
+    }
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -44,7 +50,7 @@
   endif
 -%}
 
-<div class="main-us-map content-container content-container--full-width-mobile gradient color-{{ section.settings.color_scheme }}">
+<div class="no-display-tablet main-us-map content-container content-container--full-width-mobile gradient color-{{ section.settings.color_scheme }}">
   {%- unless section.settings.title == blank -%}
     <div class="banner__box title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin multicolumn__title">
       <h2 class="title inline-richtext {{ section.settings.heading_size }}">
