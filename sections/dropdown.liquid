@@ -1,6 +1,5 @@
 {%- style -%}
   .dots {
-    display: flex;
     margin-top: 30px;
     padding: 10px;
     position: relative;
@@ -279,29 +278,80 @@
   }
 
   @media screen and (min-width: 990px) {
-    .no-display-desktop {
+    .dots {
       display: none;
+    }
+  }
+
+  @media screen and (max-width: 990px) {
+    .dots {
+      display: flex;
     }
   }
 {%- endstyle -%}
 
-<div class="no-display-desktop dots" onclick="this.classList.toggle('active');">
+<div class="dots" onclick="this.classList.toggle('active');">
   <div class="dot">&nbsp;</div>
   <div class="dot">&nbsp;</div>
-  <div class="shadow cut">&nbsp;</div>
+  <div class="dot">&nbsp;</div>
+  <div class="shadow cut"></div>
   <div class="container cut">
-    <div class="drop cut2">&nbsp;</div>
+    <div class="drop cut2"></div>
   </div>
   <div class="list">
     <ul>
-      <li>Mark as read</li>
-      <li>Flag as important</li>
-      <li>Save for later</li>
-      <li>Move to trash</li>
-      <li>Mark as spam</li>
+      <li>Hawaii Contacts: 2 Emails: 3</li>
+      <li>Alaska Contacts: 1 Emails: 1</li>
+      <li>Florida Contacts: 39 Emails: 89</li>
+      <li>South Carolina Contacts: 7 Emails: 14</li>
+      <li>Georgia Contacts: 19 Emails: 37</li>
+      <li>Alabama Contacts: 10 Emails: 20</li>
+      <li>North Carolina Contacts: 13 Emails: 38</li>
+      <li>Tennessee Contacts: 11 Emails: 24</li>
+      <li>Rhode Island Contacts: 2 Emails: 1</li>
+      <li>Connecticut Contacts: 9 Emails: 15</li>
+      <li>Massachusetts Contacts: 13 Emails: 36</li>
+      <li>Maine Contacts: 1 Emails: 3l</li>
+      <li>New Hampshire Contacts: 2 Emails: 6</li>
+      <li>Vermont Contacts: 1 Emails: 1</li>
+      <li>New York Contacts: 28 Emails: 73</li>
+      <li>New Jersey Contacts: 15 Emails: 35</li>
+      <li>Pennsylvania Contacts: 19 Emails: 40</li>
+      <li>Delaware Contacts: 3 Emails: 6</li>
+      <li>Maryland Contacts: 11 Emails: 26</li>
+      <li>West Virginia Contacts: 2 Emails:</li>
+      <li>Kentucky Contacts: 8 Emails: 16</li>
+      <li>Ohio Contacts: 17 Emails: 33</li>
+      <li>Michigan Contacts: 14 Emails: 32</li>
+      <li>Wyoming Contacts: 0 Emails: 0</li>
+      <li>Montana Contacts: 1 Emails: 1</li>
+      <li>Idaho Contacts: 4 Emails: 7l</li>
+      <li>Washington Contacts: 8 Emails: 15</li>
+      <li>Texas Contacts: 35 Emails: 77</li>
+      <li>California Contacts: 72 Emails: 165</li>
+      <li>Arizona Contacts: 13 Emails: 29</li>
+      <li>Nevada Contacts: 5 Emails: 15</li>
+      <li>Utah Contacts: 2 Emails: 611</li>
+      <li>Colorado Contacts: 11 Emails: 33</li>
+      <li>New Mexico Contacts: 2 Emails: 5</li>
+      <li>Oregon Contacts: 5 Emails: 13</li>
+      <li>North Dakota Contacts: 1 Emails: 0</li>
+      <li>South Dakota Contacts: 1 Emails: 3</li>
+      <li>Nebraska Contacts: 4 Emails: 9</li>
+      <li>Iowa Contacts: 4 Emails: 6ll</li>
+      <li>Mississippi Contacts: 5 Emails: 9</li>
+      <li>Indiana Contacts: 8 Emails: 13</li>
+      <li>Illinois Contacts: 17 Emails: 38</li>
+      <li>Minnesota Contacts: 7 Emails: 17</li>
+      <li>Wisconsin Contacts: 4 Emails: 7</li>
+      <li>Missouri Contacts: 7 Emails: 18</li>
+      <li>Arkansas Contacts: 6 Emails: 7</li>
+      <li>Oklahoma Contacts: 6 Emails: 14</li>
+      <li>Kansas Contacts: 7 Emails: 21</li>
+      <li>Louisiana Contacts: 8 Emails: 20</li>
+      <li>Virginia Contacts: 8 Emails: 14</li>
     </ul>
   </div>
-  <div class="dot"></div>
 </div>
 <div
   class="cursor"
