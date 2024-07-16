@@ -284,6 +284,10 @@
     width: 80px;
   }
 
+  #Banner-{{ section.id }}::after {
+    opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
+  }
+
   @media screen and (min-width: 990px) {
     .three-dots {
       display: none;
@@ -297,183 +301,310 @@
   }
 {%- endstyle -%}
 
-<div class="three-dots" onclick="this.classList.toggle('active');">
-  <div class="three-dot">&nbsp;</div>
-  <div class="three-dot">&nbsp;</div>
-  <div class="three-dot">&nbsp;</div>
-  <div class="shadow cut">&nbsp;</div>
-  <div class="container cut">
-    <div class="drop cut2">&nbsp;</div>
+{%- liquid
+  assign full_width = '100vw'
+  assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+
+  if section.settings.image_behavior == 'ambient'
+    assign full_width = '120vw'
+    assign widths = '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680'
+    assign fetch_priority = 'auto'
+  endif
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+-%}
+
+<div class="content-container content-container--full-width-mobile gradient color-{{ section.settings.color_scheme }}">
+  {%- unless section.settings.title == blank -%}
+    <div class="banner__box title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin multicolumn__title">
+      <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+        {{ section.settings.title }}
+      </h2>
+    </div>
+  {%- endunless -%}
+
+  {%- if section.settings.image != blank -%}
+    <div class="banner__media media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      {%- liquid
+        assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
+        assign image_class = 'banner__media-image-half'
+        assign sizes = full_width
+      -%}
+      {{
+        section.settings.image
+        | image_url: width: 3840
+        | image_tag:
+          width: section.settings.image.width,
+          height: image_height,
+          class: image_class,
+          sizes: sizes,
+          widths: widths,
+          fetchpriority: fetch_priority
+      }}
+    </div>
+  {%- endif -%}
+
+  <div class="three-dots" onclick="this.classList.toggle('active');">
+    <div class="three-dot">&nbsp;</div>
+    <div class="three-dot">&nbsp;</div>
+    <div class="three-dot">&nbsp;</div>
+    <div class="shadow cut">&nbsp;</div>
+    <div class="container cut">
+      <div class="drop cut2">&nbsp;</div>
+    </div>
+    <div class="list">
+      <ul>
+        <li>
+          Alabama (AL) <small>Contacts: 10 <span>Emails: 20</span></small>
+        </li>
+        <li>
+          Alaska (AK) <small>Contacts: 1 <span>Emails: 1</span></small>
+        </li>
+        <li>
+          Arizona (AZ) <small>Contacts: 13 <span>Emails: 29</span></small>
+        </li>
+        <li>
+          Arkansas (AR) <small>Contacts: 6 <span>Emails: 7</span></small>
+        </li>
+        <li>
+          California (CA) <small>Contacts: 72 <span>Emails: 165</span></small>
+        </li>
+        <li>
+          Colorado (CO) <small>Contacts: 11 <span>Emails: 33</span></small>
+        </li>
+        <li>
+          Connecticut (CT) <small>Contacts: 9 <span>Emails: 15</span></small>
+        </li>
+        <li>
+          Delaware (DE) <small>Contacts: 3 <span>Emails: 6</span></small>
+        </li>
+        <li>
+          Florida (FL) <small>Contacts: 39 <span>Emails: 89</span></small>
+        </li>
+        <li>
+          Georgia (GA) <small>Contacts: 19 <span>Emails: 37</span></small>
+        </li>
+        <li>
+          Hawaii (HI) <small>Contacts: 2 <span>Emails: 3</span></small>
+        </li>
+        <li>
+          Idaho (ID) <small>Contacts: 4 <span>Emails: 7</span></small>
+        </li>
+        <li>
+          Illinois (IL) <small>Contacts: 17 <span>Emails: 38</span></small>
+        </li>
+        <li>
+          Indiana (IN) <small>Contacts: 8 <span>Emails: 13</span></small>
+        </li>
+        <li>
+          Iowa (IA) <small>Contacts: 4 <span>Emails: 6</span></small>
+        </li>
+        <li>
+          Kansas (KS) <small>Contacts: 7 <span>Emails: 21</span></small>
+        </li>
+        <li>
+          Kentucky (KY) <small>Contacts: 8 <span>Emails: 16</span></small>
+        </li>
+        <li>
+          Louisiana (LA) <small>Contacts: 8 <span>Emails: 20</span></small>
+        </li>
+        <li>
+          Maine (ME) <small>Contacts: 1 <span>Emails: 3</span></small>
+        </li>
+        <li>
+          Maryland (MD) <small>Contacts: 11 <span>Emails: 26</span></small>
+        </li>
+        <li>
+          Massachusetts (MA) <small>Contacts: 13 <span>Emails: 36</span></small>
+        </li>
+        <li>
+          Michigan (MI) <small>Contacts: 14 <span>Emails: 32</span></small>
+        </li>
+        <li>
+          Minnesota (MN) <small>Contacts: 7 <span>Emails: 17</span></small>
+        </li>
+        <li>
+          Mississippi (MS) <small>Contacts: 5 <span>Emails: 9</span></small>
+        </li>
+        <li>
+          Missouri (MO) <small>Contacts: 7 <span>Emails: 18</span></small>
+        </li>
+        <li>
+          Montana (MT) <small>Contacts: 1 <span>Emails: 1</span></small>
+        </li>
+        <li>
+          Nebraska (NE) <small>Contacts: 4 <span>Emails: 9</span></small>
+        </li>
+        <li>
+          Nevada (NV) <small>Contacts: 5 <span>Emails: 15</span></small>
+        </li>
+        <li>
+          New Hampshire (NH) <small>Contacts: 2 <span>Emails: 6</span></small>
+        </li>
+        <li>
+          New Jersey (NJ) <small>Contacts: 15 <span>Emails: 35</span></small>
+        </li>
+        <li>
+          New Mexico (NM) <small>Contacts: 2 <span>Emails: 5</span></small>
+        </li>
+        <li>
+          New York (NY) <small>Contacts: 28 <span>Emails: 73</span></small>
+        </li>
+        <li>
+          North Carolina (NC) <small>Contacts: 13 <span>Emails: 38</span></small>
+        </li>
+        <li>
+          North Dakota (ND) <small>Contacts: 1 <span>Emails: 0</span></small>
+        </li>
+        <li>
+          Ohio (OH) <small>Contacts: 17 <span>Emails: 33</span></small>
+        </li>
+        <li>
+          Oklahoma (OK) <small>Contacts: 6 <span>Emails: 14</span></small>
+        </li>
+        <li>
+          Oregon (OR) <small>Contacts: 5 <span>Emails: 13</span></small>
+        </li>
+        <li>
+          Pennsylvania (PA) <small>Contacts: 19 <span>Emails: 40</span></small>
+        </li>
+        <li>
+          Rhode Island (RI) <small>Contacts: 2 <span>Emails: 1</span></small>
+        </li>
+        <li>
+          South Carolina (SC) <small>Contacts: 7 <span>Emails: 14</span></small>
+        </li>
+        <li>
+          South Dakota (SD) <small>Contacts: 1 <span>Emails: 3</span></small>
+        </li>
+        <li>
+          Tennessee (TN) <small>Contacts: 11 <span>Emails: 24</span></small>
+        </li>
+        <li>
+          Texas (TX) <small>Contacts: 35 <span>Emails: 77</span></small>
+        </li>
+        <li>
+          Utah (UT) <small>Contacts: 2 <span>Emails: 611</span></small>
+        </li>
+        <li>
+          Vermont (VT) <small>Contacts: 1 <span>Emails: 1</span></small>
+        </li>
+        <li>
+          Virginia (VA) <small>Contacts: 8 <span>Emails: 14</span></small>
+        </li>
+        <li>
+          Washington (WA) <small>Contacts: 8 <span>Emails: 15</span></small>
+        </li>
+        <li>
+          Washington DC <small>Contacts: 2 <span>Emails: 5</span></small>
+        </li>
+        <li>
+          West Virginia (WV) <small>Contacts: 2 <span>Emails:</span></small>
+        </li>
+        <li>
+          Wisconsin (WI) <small>Contacts: 4 <span>Emails: 7</span></small>
+        </li>
+        <li>
+          Wyoming (WY) <small>Contacts: 0 <span>Emails: 0</span></small>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="list">
-    <ul>
-      <li>
-        Alabama (AL) <small>Contacts: 10 <span>Emails: 20</span></small>
-      </li>
-      <li>
-        Alaska (AK) <small>Contacts: 1 <span>Emails: 1</span></small>
-      </li>
-      <li>
-        Arizona (AZ) <small>Contacts: 13 <span>Emails: 29</span></small>
-      </li>
-      <li>
-        Arkansas (AR) <small>Contacts: 6 <span>Emails: 7</span></small>
-      </li>
-      <li>
-        California (CA) <small>Contacts: 72 <span>Emails: 165</span></small>
-      </li>
-      <li>
-        Colorado (CO) <small>Contacts: 11 <span>Emails: 33</span></small>
-      </li>
-      <li>
-        Connecticut (CT) <small>Contacts: 9 <span>Emails: 15</span></small>
-      </li>
-      <li>
-        Delaware (DE) <small>Contacts: 3 <span>Emails: 6</span></small>
-      </li>
-      <li>
-        Florida (FL) <small>Contacts: 39 <span>Emails: 89</span></small>
-      </li>
-      <li>
-        Georgia (GA) <small>Contacts: 19 <span>Emails: 37</span></small>
-      </li>
-      <li>
-        Hawaii (HI) <small>Contacts: 2 <span>Emails: 3</span></small>
-      </li>
-      <li>
-        Idaho (ID) <small>Contacts: 4 <span>Emails: 7</span></small>
-      </li>
-      <li>
-        Illinois (IL) <small>Contacts: 17 <span>Emails: 38</span></small>
-      </li>
-      <li>
-        Indiana (IN) <small>Contacts: 8 <span>Emails: 13</span></small>
-      </li>
-      <li>
-        Iowa (IA) <small>Contacts: 4 <span>Emails: 6</span></small>
-      </li>
-      <li>
-        Kansas (KS) <small>Contacts: 7 <span>Emails: 21</span></small>
-      </li>
-      <li>
-        Kentucky (KY) <small>Contacts: 8 <span>Emails: 16</span></small>
-      </li>
-      <li>
-        Louisiana (LA) <small>Contacts: 8 <span>Emails: 20</span></small>
-      </li>
-      <li>
-        Maine (ME) <small>Contacts: 1 <span>Emails: 3</span></small>
-      </li>
-      <li>
-        Maryland (MD) <small>Contacts: 11 <span>Emails: 26</span></small>
-      </li>
-      <li>
-        Massachusetts (MA) <small>Contacts: 13 <span>Emails: 36</span></small>
-      </li>
-      <li>
-        Michigan (MI) <small>Contacts: 14 <span>Emails: 32</span></small>
-      </li>
-      <li>
-        Minnesota (MN) <small>Contacts: 7 <span>Emails: 17</span></small>
-      </li>
-      <li>
-        Mississippi (MS) <small>Contacts: 5 <span>Emails: 9</span></small>
-      </li>
-      <li>
-        Missouri (MO) <small>Contacts: 7 <span>Emails: 18</span></small>
-      </li>
-      <li>
-        Montana (MT) <small>Contacts: 1 <span>Emails: 1</span></small>
-      </li>
-      <li>
-        Nebraska (NE) <small>Contacts: 4 <span>Emails: 9</span></small>
-      </li>
-      <li>
-        Nevada (NV) <small>Contacts: 5 <span>Emails: 15</span></small>
-      </li>
-      <li>
-        New Hampshire (NH) <small>Contacts: 2 <span>Emails: 6</span></small>
-      </li>
-      <li>
-        New Jersey (NJ) <small>Contacts: 15 <span>Emails: 35</span></small>
-      </li>
-      <li>
-        New Mexico (NM) <small>Contacts: 2 <span>Emails: 5</span></small>
-      </li>
-      <li>
-        New York (NY) <small>Contacts: 28 <span>Emails: 73</span></small>
-      </li>
-      <li>
-        North Carolina (NC) <small>Contacts: 13 <span>Emails: 38</span></small>
-      </li>
-      <li>
-        North Dakota (ND) <small>Contacts: 1 <span>Emails: 0</span></small>
-      </li>
-      <li>
-        Ohio (OH) <small>Contacts: 17 <span>Emails: 33</span></small>
-      </li>
-      <li>
-        Oklahoma (OK) <small>Contacts: 6 <span>Emails: 14</span></small>
-      </li>
-      <li>
-        Oregon (OR) <small>Contacts: 5 <span>Emails: 13</span></small>
-      </li>
-      <li>
-        Pennsylvania (PA) <small>Contacts: 19 <span>Emails: 40</span></small>
-      </li>
-      <li>
-        Rhode Island (RI) <small>Contacts: 2 <span>Emails: 1</span></small>
-      </li>
-      <li>
-        South Carolina (SC) <small>Contacts: 7 <span>Emails: 14</span></small>
-      </li>
-      <li>
-        South Dakota (SD) <small>Contacts: 1 <span>Emails: 3</span></small>
-      </li>
-      <li>
-        Tennessee (TN) <small>Contacts: 11 <span>Emails: 24</span></small>
-      </li>
-      <li>
-        Texas (TX) <small>Contacts: 35 <span>Emails: 77</span></small>
-      </li>
-      <li>
-        Utah (UT) <small>Contacts: 2 <span>Emails: 611</span></small>
-      </li>
-      <li>
-        Vermont (VT) <small>Contacts: 1 <span>Emails: 1</span></small>
-      </li>
-      <li>
-        Virginia (VA) <small>Contacts: 8 <span>Emails: 14</span></small>
-      </li>
-      <li>
-        Washington (WA) <small>Contacts: 8 <span>Emails: 15</span></small>
-      </li>
-      <li>
-        Washington DC <small>Contacts: 2 <span>Emails: 5</span></small>
-      </li>
-      <li>
-        West Virginia (WV) <small>Contacts: 2 <span>Emails:</span></small>
-      </li>
-      <li>
-        Wisconsin (WI) <small>Contacts: 4 <span>Emails: 7</span></small>
-      </li>
-      <li>
-        Wyoming (WY) <small>Contacts: 0 <span>Emails: 0</span></small>
-      </li>
-    </ul>
-  </div>
+  <div
+    class="cursor"
+    onclick="document.querySelector('.three-dots').classList.toggle('active');"
+  ></div>
 </div>
-<div
-  class="cursor"
-  onclick="document.querySelector('.three-dots').classList.toggle('active');"
-></div>
 
 {% schema %}
 {
   "name": "t:sections.dropdown.name",
   "tag": "section",
   "class": "section",
-  "settings": [],
+  "settings": [
+    {
+      "type": "liquid",
+      "id": "us_map",
+      "label": "t:sections.us-map.settings.us_map.label",
+      "info": "t:sections.us-map.settings.us_map.info"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "US Map",
+      "label": "t:sections.us-map.settings.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.us-map.settings.us_map.label"
+    },
+    {
+      "type": "range",
+      "id": "image_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "t:sections.image-banner.settings.image_overlay_opacity.label",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.animation.content"
+    },
+    {
+      "type": "select",
+      "id": "image_behavior",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.all.animation.image_behavior.options__1.label"
+        },
+        {
+          "value": "ambient",
+          "label": "t:sections.all.animation.image_behavior.options__2.label"
+        },
+        {
+          "value": "fixed",
+          "label": "t:sections.all.animation.image_behavior.options__3.label"
+        },
+        {
+          "value": "zoom-in",
+          "label": "t:sections.all.animation.image_behavior.options__4.label"
+        }
+      ],
+      "default": "none",
+      "label": "t:sections.all.animation.image_behavior.label"
+    }
+  ],
   "presets": [
     {
       "name": "Dropdown",
