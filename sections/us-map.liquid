@@ -6,6 +6,7 @@
 {%- style -%}
   .main-us-map {
     display: flex;
+    min-height: 30rem;
     position: relative;
     align-items: center;
     flex-direction: column;
@@ -50,7 +51,7 @@
   endif
 -%}
 
-<div class="no-display-tablet main-us-map content-container content-container--full-width-mobile gradient color-{{ section.settings.color_scheme }}">
+<div class="main-us-map content-container content-container--full-width-mobile gradient color-{{ section.settings.color_scheme }}">
   {%- unless section.settings.title == blank -%}
     <div class="banner__box title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin multicolumn__title">
       <h2 class="title inline-richtext {{ section.settings.heading_size }}">
@@ -81,7 +82,7 @@
   {%- endif -%}
 
   <div id="info-box"></div>
-  <div class="us-map-section">
+  <div class="no-display-tablet us-map-section">
     <svg
       xmlns:cc="http://creativecommons.org/ns#"
       xmlns:dc="http://purl.org/dc/elements/1.1/"
