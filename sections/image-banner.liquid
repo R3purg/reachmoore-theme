@@ -1,24 +1,24 @@
 {{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
 {%- style -%}
-    @media screen and (min-width: 1400px) {
-      #shopify-section-template--16898284191796__image_banner {
-        height: 280px;
-      }
+  @media screen and (min-width: 1400px) {
+    #shopify-section-template--16898284191796__image_banner {
+      height: 280px;
     }
-  
-    @media screen and (min-width: 750px) {
-      #shopify-section-template--16898284191796__image_banner {
-        height: 230px;
-      }
-    }
+  }
 
-    @media screen and (min-width: 750px) {
-      .banner__content {
-        padding: 0px;
-      }
+  @media screen and (min-width: 750px) {
+    #shopify-section-template--16898284191796__image_banner {
+      height: 230px;
     }
+  }
+
+  @media screen and (min-width: 750px) {
+    .banner__content {
+      padding: 0px;
+    }
+  }
 {%- endstyle -%}
-      
+
 {%- if section.settings.image_height == 'adapt' and section.settings.image != blank -%}
   {%- style -%}
     @media screen and (max-width: 749px) {
@@ -43,18 +43,113 @@
 {%- endif -%}
 
 {%- style -%}
-  #Banner-{{ section.id }}::after {
-    opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
-  }
+    #Banner-{{ section.id }}::after {
+      opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
+    }
 
-  @media screen and (min-width: 1400px) {
-    #shopify-section-template--16898284191796__image_banner {
-      height: 250px;
-    .banner__content {
-      padding-top: 0px;
+    @media screen and (min-width: 1400px) {
+      #shopify-section-template--16898284191796__image_banner {
+        height: 250px;
+      .banner__content {
+        padding-top: 0px;
+      }
     }
   }
-}
+{%- endstyle -%}
+
+{%- style -%}
+  .reachmoore {
+    position: relative;
+    color: transparent;
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    font-size: calc(var(--font-heading-scale) * 5rem);
+    letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
+    line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
+  }
+
+  .reachmoore > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: rgb(var(--color-foreground));
+    pointer-events: none;
+  }
+
+  .reachmoore > div:nth-child(1) {
+    -webkit-mask-image: linear-gradient(black 25%, transparent 25%);
+    mask-image: linear-gradient(black 25%, transparent 25%);
+    animation: reachmoore1 5s 1;
+  }
+
+  .reachmoore > div:nth-child(2) {
+    -webkit-mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
+    mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
+    animation: reachmoore2 5s 1;
+  }
+
+  .reachmoore > div:nth-child(3) {
+    -webkit-mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
+    mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
+    animation: reachmoore3 5s 1;
+  }
+
+  .reachmoore > div:nth-child(4) {
+    -webkit-mask-image: linear-gradient(transparent 75%, black 75%);
+    mask-image: linear-gradient(transparent 75%, black 75%);
+    animation: reachmoore4 5s 1;
+  }
+
+  @keyframes reachmoore1 {
+    0% {
+      transform: translateX(100%);
+    }
+    26% {
+      transform: translateX(0%);
+    }
+    83% {
+      transform: translateX(-0.1%);
+    }
+  }
+
+  @keyframes reachmoore2 {
+    0% {
+      transform: translateX(100%);
+    }
+    24% {
+      transform: translateX(0.5%);
+    }
+    82% {
+      transform: translateX(-0.2%);
+    }
+  }
+
+  @keyframes reachmoore3 {
+    0% {
+      transform: translateX(100%);
+    }
+    22% {
+      transform: translateX(0%);
+    }
+    81% {
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes reachmoore4 {
+    0% {
+      transform: translateX(100%);
+    }
+    20% {
+      transform: translateX(0%);
+    }
+    80% {
+      transform: translateX(0%);
+    }
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -154,6 +249,13 @@
             >
               {{ block.settings.heading }}
             </h2>
+            <div class="reachmoore">
+              ReachMoore
+              <div>ReachMoore</div>
+              <div>ReachMoore</div>
+              <div>ReachMoore</div>
+              <div>ReachMoore</div>
+            </div>
           {%- when 'text' -%}
             <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
               <p>{{ block.settings.text }}</p>

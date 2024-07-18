@@ -1,0 +1,307 @@
+{%- style -%}
+  .card {
+    width: 80%;
+    max-width: 70rem;
+    text-align: center;
+    position: -webkit-sticky;
+    position: sticky;
+    background: white;
+    border-radius: 5px;
+    align-self: center;
+    box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+
+  .multicolumn-card {
+    border-radius: 5px;
+  }
+
+  .card:nth-child(1) {
+    top: 11rem;
+    bottom: 0;
+    transform: rotate(1deg);
+  }
+
+  .card:nth-child(2) {
+    top: 15rem;
+    bottom: 0;
+    transform: rotate(2deg);
+  }
+
+  .card:nth-child(3) {
+    top: 19rem;
+    bottom: 0;
+    transform: rotate(3deg);
+  }
+
+  .card:nth-child(4) {
+    top: 23rem;
+    bottom: 0;
+    transform: rotate(4deg);
+  }
+
+  .card:nth-child(5) {
+    top: 25rem;
+    bottom: 0;
+    transform: rotate(5deg);
+  }
+
+  .card:nth-child(6) {
+    top: 29rem;
+    bottom: 0;
+    transform: rotate(6deg);
+  }
+
+  .card:nth-child(7) {
+    top: 33rem;
+    bottom: 0;
+    transform: rotate(7deg);
+  }
+
+  .card:nth-child(8) {
+    top: 37rem;
+    bottom: 0;
+    transform: rotate(8deg);
+  }
+
+  .card:nth-child(9) {
+    top: 41rem;
+    bottom: 0;
+    transform: rotate(9deg);
+  }
+
+  .card:nth-child(10) {
+    top: 45rem;
+    bottom: 0;
+    transform: rotate(10deg);
+  }
+
+  .sticky {
+    display: flex;
+    position: -webkit-sticky;
+    position: sticky;
+    flex-direction: column;
+  }
+
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .multicolumn-card__info h3 {
+    font-size: 32px;
+  }
+
+  .multicolumn-card__info div {
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+
+-%}
+
+<div class="multicolumn color-{{ section.settings.color_scheme }} {% unless section.settings.background_style == 'none' and settings.text_boxes_border_thickness > 0 or settings.text_boxes_shadow_opacity > 0 %} background-{{ section.settings.background_style }}{% endunless %}{% if section.settings.title == blank %} no-heading{% endif %}">
+  {%- unless section.settings.title == blank -%}
+    <div class="rich-text content-container color-{{ section.settings.color_scheme }} gradient{% if section.settings.full_width %} rich-text--full-width content-container--full-width{% endif %} section-{{ section.id }}-padding">
+      <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.desktop_content_position }}{% if section.settings.full_width %} page-width{% endif %}">
+        <div class="rich-text__blocks {{ section.settings.content_alignment }}">
+          <h2
+            class="rich-text__heading rte inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {{ section.shopify_attributes }}
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+            {% endif %}
+          >
+            {{ section.settings.title }}
+          </h2>
+        </div>
+      </div>
+    </div>
+  {%- endunless -%}
+  <div
+    class="page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} sticky"
+    {% if settings.animations_reveal_on_scroll %}
+      data-cascade
+    {% endif %}
+  >
+    {%- for block in section.blocks -%}
+      <div
+        id="Slide-{{ section.id }}-{{ forloop.index }}"
+        class="card color-{{ block.settings.color_scheme_block }}"
+        {{ block.shopify_attributes }}
+        {% if settings.animations_reveal_on_scroll %}
+          data-cascade
+          style="--animation-order: {{ forloop.index }};"
+        {% endif %}
+      >
+        <div class="multicolumn-card content-container">
+          <div class="multicolumn-card__info">
+            {%- if block.settings.title != blank -%}
+              <h3 class="inline-richtext">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <div class="rte">{{ block.settings.text }}</div>
+            {%- endif -%}
+            {%- if block.settings.link_label != blank -%}
+              <a
+                class="link animate-arrow"
+                {% if block.settings.link == blank %}
+                  role="link" aria-disabled="true"
+                {% else %}
+                  href="{{ block.settings.link }}"
+                {% endif %}
+              >
+                {{- block.settings.link_label | escape -}}
+                <span class="icon-wrap">&nbsp;{% render 'icon-arrow' %}</span></a
+              >
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.sticky-multicolumn.name",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Sticky Multicolumn",
+      "label": "t:sections.sticky-multicolumn.settings.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "background_style",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.sticky-multicolumn.settings.background_style.options__1.label"
+        },
+        {
+          "value": "primary",
+          "label": "t:sections.sticky-multicolumn.settings.background_style.options__2.label"
+        }
+      ],
+      "default": "primary",
+      "label": "t:sections.sticky-multicolumn.settings.background_style.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "t:sections.sticky-multicolumn.blocks.column.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "default": "Column",
+          "label": "t:sections.sticky-multicolumn.blocks.column.settings.title.label"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+          "label": "t:sections.sticky-multicolumn.blocks.column.settings.text.label"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "t:sections.sticky-multicolumn.blocks.column.settings.link_label.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.sticky-multicolumn.blocks.column.settings.link.label"
+        },
+        {
+          "type": "color_scheme",
+          "id": "color_scheme_block",
+          "label": "t:sections.all.colors.label",
+          "default": "scheme-1"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.sticky-multicolumn.presets.name",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

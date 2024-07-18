@@ -15,19 +15,20 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Discover the Power of Data with <strong>ReachMoore<\/strong>!",
+            "heading": "Find Business Contacts Fast: Download State-Specific Data with",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "",
-            "text_style": "body"
+            "text": "Get instant access to a treasure of business emails, phone numbers, and addresses. Choose your state, download an Excel file, and kickstart your marketing campaigns effortlessly. With ReachMoore, finding the right contacts has never been easier. Start reaching more customers today!",
+            "text_style": "subtitle"
           }
         },
         "button": {
           "type": "buttons",
+          "disabled": true,
           "settings": {
             "button_label_1": "Explore Datasets",
             "button_link_1": "shopify:\/\/collections\/all",
@@ -60,6 +61,22 @@
         "show_text_below": false
       }
     },
+    "dropdown_qMWwgF": {
+      "type": "dropdown",
+      "custom_css": [
+        ".content-container {background-color: rgba(63, 63, 68, 0);}",
+        ".banner:after,.banner__media:after {opacity: 0.2;}"
+      ],
+      "settings": {
+        "title": "Browse states",
+        "heading_size": "h2",
+        "outer_color_scheme": "scheme-113d8947-26d9-4d8f-8c2c-54538f8c519c",
+        "inner_color_scheme": "scheme-1",
+        "image": "shopify:\/\/shop_images\/data-purple.jpg",
+        "image_overlay_opacity": 0,
+        "image_behavior": "fixed"
+      }
+    },
     "us_map": {
       "type": "us-map",
       "custom_css": [
@@ -67,7 +84,9 @@
       ],
       "settings": {
         "us_map": "",
-        "color_scheme": "scheme-1",
+        "title": "",
+        "heading_size": "h2",
+        "color_scheme": "scheme-3",
         "image": "shopify:\/\/shop_images\/data-purple.jpg",
         "image_overlay_opacity": 0,
         "image_behavior": "fixed"
@@ -135,12 +154,6 @@
         "card_JqnGXt"
       ],
       "settings": {
-        "image1": "shopify:\/\/shop_images\/User.svg",
-        "image2": "shopify:\/\/shop_images\/Users.svg",
-        "image3": "shopify:\/\/shop_images\/Data.svg",
-        "image4": "shopify:\/\/shop_images\/BeautySalons.png",
-        "image5": "shopify:\/\/shop_images\/Chiropractors_ChiropracticServices.png",
-        "image6": "shopify:\/\/shop_images\/Alaska.png",
         "sections_to_show": 25,
         "columns_desktop": 6,
         "enable_desktop_slider": true,
@@ -161,7 +174,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Did you know? We have an extensive database containing detailed information on over 1 thousand records across different US states.<\/p><p>Our comprehensive data empowers your business to make informed decisions, identify new opportunities, and drive growth.<\/p><p>Partner with us to leverage the full potential of data-driven strategies!<\/p>"
+            "text": "<p>Explore the versatility of ReachMoore's state-specific business datasets, optimized for effective outreach strategies:<\/p>"
           }
         }
       },
@@ -178,139 +191,94 @@
         "padding_bottom": 0
       }
     },
-    "card_carousel_tXjfe6": {
-      "type": "card-carousel",
+    "sticky_multicolumn_UB7P7A": {
+      "type": "sticky-multicolumn",
       "blocks": {
-        "card_mzecVz": {
-          "type": "card",
+        "column_BEbFE4": {
+          "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Data.svg",
-            "title": "4,455",
-            "description": "No. of niches",
-            "link_url": "",
-            "link_text": ""
+            "title": "Email Campaigns",
+            "text": "<p>Efficiently connect via email using verified addresses.<\/p>",
+            "link_label": "",
+            "link": "",
+            "color_scheme_block": "scheme-113d8947-26d9-4d8f-8c2c-54538f8c519c"
           }
         },
-        "card_PWHE9b": {
-          "type": "card",
+        "column_VGrMXn": {
+          "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Report.svg",
-            "title": "114",
-            "description": "No. of datasets",
-            "link_url": "",
-            "link_text": ""
+            "title": "Mail Campaigns",
+            "text": "<p>Precision-target potential clients with physical mail.<\/p>",
+            "link_label": "",
+            "link": "",
+            "color_scheme_block": "scheme-113d8947-26d9-4d8f-8c2c-54538f8c519c"
           }
         },
-        "card_wBhgTy": {
-          "type": "card",
+        "column_cHF8tf": {
+          "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Users.svg",
-            "title": "1,063",
-            "description": "No. of customers",
-            "link_url": "",
-            "link_text": ""
-          }
-        },
-        "card_WATjDL": {
-          "type": "card",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/User.svg",
-            "title": "14,445",
-            "description": "No. of registered users",
-            "link_url": "",
-            "link_text": ""
-          }
-        },
-        "card_yVbwfq": {
-          "type": "card",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/BeautySalons.png",
-            "title": "Test",
-            "description": "Test",
-            "link_url": "",
-            "link_text": "Click Here ->"
+            "title": "Cold Calls",
+            "text": "<p>Engage directly with prospects using verified phone numbers.<\/p>",
+            "link_label": "",
+            "link": "",
+            "color_scheme_block": "scheme-113d8947-26d9-4d8f-8c2c-54538f8c519c"
           }
         }
       },
       "block_order": [
-        "card_mzecVz",
-        "card_PWHE9b",
-        "card_wBhgTy",
-        "card_WATjDL",
-        "card_yVbwfq"
+        "column_BEbFE4",
+        "column_VGrMXn",
+        "column_cHF8tf"
       ],
-      "disabled": true,
       "settings": {
-        "heading_text": "Our Featured Products",
-        "heading_size": "medium"
-      }
-    },
-    "multicolumn_Xp8kRK": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_aQcbnt": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Data.svg",
-            "title": "4,455",
-            "text": "<p>No. of niches<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_fL6NKQ": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Report.svg",
-            "title": "114",
-            "text": "<p>No. of datasets<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_ryHUAt": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Users.svg",
-            "title": "1,063",
-            "text": "<p>No. of customers<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_p7rEy3": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/User.svg",
-            "title": "14,445",
-            "text": "<p>No. of registered users<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_aQcbnt",
-        "column_fL6NKQ",
-        "column_ryHUAt",
-        "column_p7rEy3"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "<strong>ReachMoore in numbers<\/strong>",
+        "title": "",
         "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 4,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "rich_text_kYGf9V": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_idNTa4": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_N8F6xQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Harness the power of ReachMoore’s comprehensive business data solutions to enhance your email campaigns, mail campaigns, and cold calling efforts effectively.<\/p>"
+          }
+        },
+        "button_ygDq8P": {
+          "type": "button",
+          "settings": {
+            "button_label": "Explore Datasets",
+            "button_link": "shopify:\/\/collections\/all",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_idNTa4",
+        "text_N8F6xQ",
+        "button_ygDq8P"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
     "multicolumn_F3A3UA": {
@@ -355,11 +323,11 @@
       "settings": {
         "title": "<strong>Datasets By State<\/strong>",
         "heading_size": "h1",
-        "image_width": "full",
+        "image_width": "half",
         "image_ratio": "adapt",
         "columns_desktop": 3,
         "column_alignment": "center",
-        "background_style": "primary",
+        "background_style": "none",
         "button_label": "Explore Datasets By State",
         "button_link": "shopify:\/\/collections\/data-by-state",
         "color_scheme": "scheme-2",
@@ -411,11 +379,11 @@
       "settings": {
         "title": "<strong>Datasets By Industry<\/strong>",
         "heading_size": "h1",
-        "image_width": "full",
+        "image_width": "half",
         "image_ratio": "adapt",
         "columns_desktop": 3,
         "column_alignment": "center",
-        "background_style": "primary",
+        "background_style": "none",
         "button_label": "Explore Datasets By Industry",
         "button_link": "shopify:\/\/collections\/data-by-industry",
         "color_scheme": "scheme-2",
@@ -428,11 +396,12 @@
   },
   "order": [
     "image_banner",
+    "dropdown_qMWwgF",
     "us_map",
     "custom_carousel_ahQdkx",
     "rich_text",
-    "card_carousel_tXjfe6",
-    "multicolumn_Xp8kRK",
+    "sticky_multicolumn_UB7P7A",
+    "rich_text_kYGf9V",
     "multicolumn_F3A3UA",
     "multicolumn_8RnKwP"
   ]

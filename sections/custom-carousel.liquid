@@ -1,7 +1,173 @@
-{%- liquid
-  assign sections_to_display = section.blocks
+<script src="{{ 'custom-carousel.js' | asset_url }}" defer="defer"></script>
 
-  if section.blocks > section.settings.sections_to_show
+{%- style -%}
+  .item.grid__item.slider__slide {
+    width: 450px;
+    --shadow-padding-top: 2rem;
+    --shadow-padding-bottom: 2rem;
+  }
+
+  .slider-wrapper {
+    margin: 0;
+    color: #fff;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    min-height: 20vh;
+    padding-top: 5vh;
+  }
+
+  .slider {
+    width: 100%;
+  }
+
+  .slider input {
+    display: none;
+  }
+
+  .testimonials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 350px;
+    perspective: 1000px;
+    overflow: hidden;
+  }
+
+  .testimonials .item {
+    width: 450px;
+    padding: 30px;
+    border-radius: 5px;
+    background-color: #0a0220;
+    position: absolute;
+    top: 0;
+    box-sizing: border-box;
+    text-align: center;
+    transition: transform 0.4s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    user-select: none;
+    cursor: pointer;
+  }
+
+  .testimonials .item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 13px solid #3b344d;
+    background-color: white;
+  }
+
+  .testimonials .item p {
+    color: #ddd;
+  }
+
+  .testimonials .item h2 {
+    font-size: 14px;
+  }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dots label {
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #413b52;
+    margin: 7px;
+    transition-duration: 0.2s;
+  }
+
+  .description {
+    color: white;
+  }
+
+  #t-1:checked ~ .dots label[for='t-1'],
+  #t-2:checked ~ .dots label[for='t-2'],
+  #t-3:checked ~ .dots label[for='t-3'],
+  #t-4:checked ~ .dots label[for='t-4'],
+  #t-5:checked ~ .dots label[for='t-5'] {
+    transform: scale(2);
+  }
+
+  #t-1:checked ~ .dots label[for='t-2'],
+  #t-2:checked ~ .dots label[for='t-1'],
+  #t-2:checked ~ .dots label[for='t-3'],
+  #t-3:checked ~ .dots label[for='t-2'],
+  #t-3:checked ~ .dots label[for='t-4'],
+  #t-4:checked ~ .dots label[for='t-3'],
+  #t-4:checked ~ .dots label[for='t-5'],
+  #t-5:checked ~ .dots label[for='t-4'] {
+    transform: scale(1.5);
+  }
+
+  #t-1:checked ~ .testimonials label[for='t-5'] {
+    transform: translate3d(1200px, 0, -360px) rotateY(-45deg);
+  }
+
+  #t-1:checked ~ .testimonials label[for='t-4'],
+  #t-2:checked ~ .testimonials label[for='t-5'] {
+    transform: translate3d(900px, 0, -270px) rotateY(-35deg);
+    z-index: 1;
+  }
+
+  #t-1:checked ~ .testimonials label[for='t-3'],
+  #t-2:checked ~ .testimonials label[for='t-4'],
+  #t-3:checked ~ .testimonials label[for='t-5'] {
+    transform: translate3d(600px, 0, -180px) rotateY(-25deg);
+    z-index: 2;
+  }
+
+  #t-1:checked ~ .testimonials label[for='t-2'],
+  #t-2:checked ~ .testimonials label[for='t-3'],
+  #t-3:checked ~ .testimonials label[for='t-4'],
+  #t-4:checked ~ .testimonials label[for='t-5'] {
+    transform: translate3d(300px, 0, -90px) rotateY(-15deg);
+    z-index: 3;
+  }
+
+  #t-2:checked ~ .testimonials label[for='t-1'],
+  #t-3:checked ~ .testimonials label[for='t-2'],
+  #t-4:checked ~ .testimonials label[for='t-3'],
+  #t-5:checked ~ .testimonials label[for='t-4'] {
+    transform: translate3d(-300px, 0, -90px) rotateY(15deg);
+    z-index: 3;
+  }
+
+  #t-3:checked ~ .testimonials label[for='t-1'],
+  #t-4:checked ~ .testimonials label[for='t-2'],
+  #t-5:checked ~ .testimonials label[for='t-3'] {
+    transform: translate3d(-600px, 0, -180px) rotateY(25deg);
+  }
+
+  #t-5:checked ~ .testimonials label[for='t-2'],
+  #t-4:checked ~ .testimonials label[for='t-1'] {
+    transform: translate3d(-900px, 0, -270px) rotateY(35deg);
+  }
+
+  #t-5:checked ~ .testimonials label[for='t-1'] {
+    transform: translate3d(-1200px, 0, -360px) rotateY(45deg);
+  }
+
+  #t-1:checked ~ .testimonials label[for='t-1'],
+  #t-2:checked ~ .testimonials label[for='t-2'],
+  #t-3:checked ~ .testimonials label[for='t-3'],
+  #t-4:checked ~ .testimonials label[for='t-4'],
+  #t-5:checked ~ .testimonials label[for='t-4'],
+  #t-5:checked ~ .testimonials label[for='t-5'] {
+    z-index: 4;
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign sections_to_display = section.blocks.size
+
+  if sections_to_display > section.settings.sections_to_show
     assign sections_to_display = section.settings.sections_to_show
   endif
 
@@ -15,17 +181,19 @@
   if section.settings.enable_desktop_slider and sections_to_display > section.settings.columns_desktop
     assign show_desktop_slider = true
   endif
+
+  assign total_blocks = section.blocks | size
+  assign middle_index = total_blocks | divided_by: 2 | plus: 1
 -%}
 
 <div class="slider-wrapper{% if show_mobile_slider or show_desktop_slider %} slider{% if show_desktop_slider %} slider--desktop{% endif %}{% if show_mobile_slider %} slider--tablet grid--peek{% endif %}{% endif %}">
   <div class="slider{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% endif %}">
-    {% assign num_blocks = section.blocks | size %}
     {% for card in section.blocks %}
       <input
         type="radio"
         name="testimonial"
         id="t-{{ forloop.index }}"
-        {% if forloop.index == 3 %}
+        {% if forloop.index == middle_index %}
           checked
         {% endif %}
       >
@@ -52,307 +220,68 @@
       {% endfor %}
     </div>
     <div class="dots">
-      {% for i in (1..num_blocks) %}
+      {% for i in (1..sections_to_display) %}
         <label for="t-{{ i }}"></label>
       {% endfor %}
     </div>
   </div>
-  {%- if show_mobile_slider or show_desktop_slider -%}
-    <div class="slider-buttons">
-      <button
-        type="button"
-        class="slider-button slider-button--prev"
-        name="previous"
-        aria-label="{{ 'general.slider.previous_slide' | t }}"
-        aria-controls="Slider-{{ section.id }}"
-      >
-        {% render 'icon-caret' %}
-      </button>
-      <div class="slider-counter caption">
-        <span class="slider-counter--current">1</span>
-        <span aria-hidden="true"> / </span>
-        <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-        <span class="slider-counter--total">{{ products_to_display }}</span>
-      </div>
-      <button
-        type="button"
-        class="slider-button slider-button--next"
-        name="next"
-        aria-label="{{ 'general.slider.next_slide' | t }}"
-        aria-controls="Slider-{{ section.id }}"
-      >
-        {% render 'icon-caret' %}
-      </button>
-    </div>
-  {%- endif -%}
 </div>
-
-<style>
-  .slider-wrapper {
-    margin: 0;
-    color: #fff;
-    font-family: sans-serif;
-    display: flex;
-    align-items: center;
-    min-height: 20vh;
-    padding-top: 5vh;
-  }
-  .slider {
-    width: 100%;
-  }
-  .slider input {
-    display: none;
-  }
-  .testimonials {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    min-height: 350px;
-    perspective: 1000px;
-    overflow: hidden;
-  }
-  .testimonials .item {
-    width: 450px;
-    padding: 30px;
-    border-radius: 5px;
-    background-color: #0a0220;
-    position: absolute;
-    top: 0;
-    box-sizing: border-box;
-    text-align: center;
-    transition: transform 0.4s;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    user-select: none;
-    cursor: pointer;
-  }
-  .testimonials .item img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 13px solid #3b344d;
-    background-color: white;
-  }
-  .testimonials .item p {
-    color: #ddd;
-  }
-  .testimonials .item h2 {
-    font-size: 14px;
-  }
-  .dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .dots label {
-    height: 5px;
-    width: 5px;
-    border-radius: 50%;
-    cursor: pointer;
-    background-color: #413b52;
-    margin: 7px;
-    transition-duration: 0.2s;
-  }
-  .description {
-    color: white;
-  }
-
-  #t-1:checked ~ .dots label[for='t-1'],
-  #t-2:checked ~ .dots label[for='t-2'],
-  #t-3:checked ~ .dots label[for='t-3'],
-  #t-4:checked ~ .dots label[for='t-4'],
-  #t-5:checked ~ .dots label[for='t-5'] {
-    transform: scale(2);
-  }
-  #t-1:checked ~ .dots label[for='t-2'],
-  #t-2:checked ~ .dots label[for='t-1'],
-  #t-2:checked ~ .dots label[for='t-3'],
-  #t-3:checked ~ .dots label[for='t-2'],
-  #t-3:checked ~ .dots label[for='t-4'],
-  #t-4:checked ~ .dots label[for='t-3'],
-  #t-4:checked ~ .dots label[for='t-5'],
-  #t-5:checked ~ .dots label[for='t-4'] {
-    transform: scale(1.5);
-  }
-  #t-1:checked ~ .testimonials label[for='t-5'] {
-    transform: translate3d(1200px, 0, -360px) rotateY(-45deg);
-  }
-  #t-1:checked ~ .testimonials label[for='t-4'],
-  #t-2:checked ~ .testimonials label[for='t-5'] {
-    transform: translate3d(900px, 0, -270px) rotateY(-35deg);
-    z-index: 1;
-  }
-  #t-1:checked ~ .testimonials label[for='t-3'],
-  #t-2:checked ~ .testimonials label[for='t-4'],
-  #t-3:checked ~ .testimonials label[for='t-5'] {
-    transform: translate3d(600px, 0, -180px) rotateY(-25deg);
-    z-index: 2;
-  }
-  #t-1:checked ~ .testimonials label[for='t-2'],
-  #t-2:checked ~ .testimonials label[for='t-3'],
-  #t-3:checked ~ .testimonials label[for='t-4'],
-  #t-4:checked ~ .testimonials label[for='t-5'] {
-    transform: translate3d(300px, 0, -90px) rotateY(-15deg);
-    z-index: 3;
-  }
-  #t-2:checked ~ .testimonials label[for='t-1'],
-  #t-3:checked ~ .testimonials label[for='t-2'],
-  #t-4:checked ~ .testimonials label[for='t-3'],
-  #t-5:checked ~ .testimonials label[for='t-4'] {
-    transform: translate3d(-300px, 0, -90px) rotateY(15deg);
-    z-index: 3;
-  }
-  #t-3:checked ~ .testimonials label[for='t-1'],
-  #t-4:checked ~ .testimonials label[for='t-2'],
-  #t-5:checked ~ .testimonials label[for='t-3'] {
-    transform: translate3d(-600px, 0, -180px) rotateY(25deg);
-  }
-  #t-5:checked ~ .testimonials label[for='t-2'],
-  #t-4:checked ~ .testimonials label[for='t-1'] {
-    transform: translate3d(-900px, 0, -270px) rotateY(35deg);
-  }
-  #t-5:checked ~ .testimonials label[for='t-1'] {
-    transform: translate3d(-1200px, 0, -360px) rotateY(45deg);
-  }
-  #t-1:checked ~ .testimonials label[for='t-1'],
-  #t-2:checked ~ .testimonials label[for='t-2'],
-  #t-3:checked ~ .testimonials label[for='t-3'],
-  #t-4:checked ~ .testimonials label[for='t-4'],
-  #t-5:checked ~ .testimonials label[for='t-4'],
-  #t-5:checked ~ .testimonials label[for='t-5'] {
-    z-index: 4;
-  }
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    if ({{ show_mobile_slider | json }}) {
-      const slider = document.querySelector('.testimonials');
-      let startX = 0;
-      let endX = 0;
-
-      slider.addEventListener('touchstart', function(e) {
-        startX = e.changedTouches[0].clientX;
-      });
-
-      slider.addEventListener('touchend', function(e) {
-        endX = e.changedTouches[0].clientX;
-        if (startX > endX) {
-          // Swipe left
-          document.querySelector('.slider-button--next').click();
-        } else if (startX < endX) {
-          // Swipe right
-          document.querySelector('.slider-button--prev').click();
-        }
-      });
-
-      // For desktop slider buttons
-      document.querySelector('.slider-button--next').addEventListener('click', function() {
-        let checkedInput = document.querySelector('.slider input:checked');
-        let nextInput = checkedInput.nextElementSibling || document.querySelector('.slider input:first-child');
-        nextInput.checked = true;
-      });
-
-      document.querySelector('.slider-button--prev').addEventListener('click', function() {
-        let checkedInput = document.querySelector('.slider input:checked');
-        let prevInput = checkedInput.previousElementSibling || document.querySelector('.slider input:last-child');
-        prevInput.checked = true;
-      });
-    }
-  });
-</script>
 
 {% schema %}
 {
   "name": "Image Carousel",
   "settings": [
     {
-      "type": "image_picker",
-      "id": "image1",
-      "label": "Image 1"
-    },
-    {
-      "type": "image_picker",
-      "id": "image2",
-      "label": "Image 2"
-    },
-    {
-      "type": "image_picker",
-      "id": "image3",
-      "label": "Image 3"
-    },
-    {
-      "type": "image_picker",
-      "id": "image4",
-      "label": "Image 4"
-    },
-    {
-      "type": "image_picker",
-      "id": "image5",
-      "label": "Image 5"
-    },
-    {
-      "type": "image_picker",
-      "id": "image6",
-      "label": "Image 6"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.featured-collection.settings.header_mobile.content"
-    },
-    {
       "type": "range",
       "id": "sections_to_show",
+      "label": "Number of Sections to Show",
+      "default": 4,
       "min": 2,
       "max": 25,
-      "step": 1,
-      "default": 4,
-      "label": "t:sections.featured-collection.settings.sections_to_show.label"
+      "step": 1
     },
     {
       "type": "range",
       "id": "columns_desktop",
+      "label": "Number of Columns on Desktop",
+      "default": 4,
       "min": 1,
       "max": 6,
-      "step": 1,
-      "default": 4,
-      "label": "t:sections.featured-collection.settings.columns_desktop.label"
+      "step": 1
     },
     {
       "type": "checkbox",
       "id": "enable_desktop_slider",
-      "label": "t:sections.featured-collection.settings.enable_desktop_slider.label",
+      "label": "Enable Slider on Desktop",
       "default": false
     },
     {
       "type": "select",
       "id": "columns_mobile",
+      "label": "Number of Columns on Mobile",
       "default": "2",
-      "label": "t:sections.featured-collection.settings.columns_mobile.label",
       "options": [
         {
           "value": "1",
-          "label": "t:sections.featured-collection.settings.columns_mobile.options__1.label"
+          "label": "1 Column"
         },
         {
           "value": "2",
-          "label": "t:sections.featured-collection.settings.columns_mobile.options__2.label"
+          "label": "2 Columns"
         }
       ]
     },
     {
       "type": "checkbox",
       "id": "swipe_on_mobile",
-      "default": false,
-      "label": "t:sections.featured-collection.settings.swipe_on_mobile.label"
+      "label": "Enable Swipe on Mobile",
+      "default": false
     }
   ],
   "blocks": [
     {
       "type": "card",
       "name": "Card",
-      "limit": 5,
       "settings": [
         {
           "type": "image_picker",
@@ -385,7 +314,7 @@
   ],
   "presets": [
     {
-      "name": "Custom carousel",
+      "name": "Custom Carousel",
       "category": "Custom"
     }
   ]
