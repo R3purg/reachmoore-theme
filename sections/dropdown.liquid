@@ -182,7 +182,7 @@
     display: flex;
     height: 31rem;
     justify-content: center;
-    left: 50%;
+    left: 47%;
     overflow: hidden;
     position: absolute;
     transform: translateX(-50%);
@@ -334,9 +334,9 @@
   endif
 -%}
 
-<div class="main-dropdown content-container content-container--full-width-mobile gradient color-{{ section.settings.outer_color_scheme }}">
+<div class="main-dropdown content-container content-container--full-width-mobile gradient">
   {%- unless section.settings.title == blank -%}
-    <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin">
+    <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin color-{{ section.settings.title_color_scheme }}">
       <h2 class="title inline-richtext {{ section.settings.heading_size }}">
         {{ section.settings.title }}
       </h2>
@@ -570,7 +570,7 @@
     },
     {
       "type": "color_scheme",
-      "id": "outer_color_scheme",
+      "id": "title_color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-1"
     },
