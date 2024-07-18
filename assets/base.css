@@ -544,6 +544,15 @@ hr {
   text-decoration: none;
   color: currentColor;
   display: block;
+  padding: 0;
+}
+
+.full-unstyled-link:after {
+  background-color: transparent;
+}
+
+.full-unstyled-link:hover {
+  color: currentColor;
 }
 
 .placeholder {

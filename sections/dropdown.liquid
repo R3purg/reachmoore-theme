@@ -178,7 +178,7 @@
     );
   }
 
-  .container {
+  .dropdown-container {
     display: flex;
     height: 31rem;
     justify-content: center;
@@ -222,7 +222,7 @@
     top: 0;
   }
 
-  .list {
+  .dropdown-list {
     left: 20%;
     position: absolute;
     transform: translateX(-50%);
@@ -232,12 +232,12 @@
     overflow: auto;
   }
 
-  .list ul {
+  .dropdown-list ul {
     margin: 0;
     padding: 0;
   }
 
-  .list li {
+  .dropdown-list li {
     align-items: flex-start;
     border-bottom: 1px solid #bdbdbd;
     display: flex;
@@ -253,11 +253,11 @@
     flex-direction: column;
   }
 
-  .list li:hover {
+  .dropdown-list li:hover {
     background: #f5f5f5;
   }
 
-  .three-dots.active .container {
+  .three-dots.active .dropdown-container {
     transform: translateX(-50%) translateY(20px);
   }
 
@@ -265,25 +265,25 @@
     transform: translateY(212px) scale(108);
   }
 
-  .three-dots.active .list li {
+  .three-dots.active .dropdown-list li {
     cursor: pointer;
     opacity: 1;
     transition: opacity 200ms 100ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .three-dots.active .list li:nth-child(2) {
+  .three-dots.active .dropdown-list li:nth-child(2) {
     transition-delay: 130ms;
   }
 
-  .three-dots.active .list li:nth-child(3) {
+  .three-dots.active .dropdown-list li:nth-child(3) {
     transition-delay: 160ms;
   }
 
-  .three-dots.active .list li:nth-child(4) {
+  .three-dots.active .dropdown-list li:nth-child(4) {
     transition-delay: 190ms;
   }
 
-  .three-dots.active .list li:nth-child(5) {
+  .three-dots.active .dropdown-list li:nth-child(5) {
     transition-delay: 220ms;
   }
 
@@ -364,15 +364,15 @@
     </div>
   {%- endif -%}
 
-  <div class="three-dots color-{{ section.settings.outer_color_scheme }}" onclick="this.classList.toggle('active');">
+  <div class="three-dots" onclick="this.classList.toggle('active');">
     <div class="three-dot color-{{ section.settings.inner_color_scheme }}">&nbsp;</div>
     <div class="three-dot color-{{ section.settings.inner_color_scheme }}">&nbsp;</div>
     <div class="three-dot color-{{ section.settings.inner_color_scheme }}">&nbsp;</div>
     <div class="shadow cut">&nbsp;</div>
-    <div class="container cut">
+    <div class="dropdown-container cut">
       <div class="drop cut2">&nbsp;</div>
     </div>
-    <div class="list">
+    <div class="dropdown-list">
       <ul>
         <li id="AL">
           Alabama (AL) <small>Contacts: 10 <span>Emails: 20</span></small>

@@ -3,9 +3,10 @@
 	z-index: 1;
 }
 
-path:hover, circle:hover {
+path:hover,
+circle:hover {
 	stroke: #002868 !important;
-	stroke-width:2px;
+	stroke-width: 2px;
 	stroke-linejoin: round;
 	fill: #002868 !important;
 	cursor: pointer;
@@ -23,7 +24,6 @@ path:hover, circle:hover {
 	top: 10px;
 	left: 10px;
 	z-index: 2;
-	background-color: #ffffff;
 	border-radius: 5px;
 	padding: 5px;
 	font-family: arial;
