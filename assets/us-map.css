@@ -5,17 +5,13 @@
 
 path:hover,
 circle:hover {
-	stroke: #002868 !important;
-	stroke-width: 2px;
-	stroke-linejoin: round;
-	fill: #002868 !important;
+	fill: rgba(var(--color-foreground), 0.7) !important;
 	cursor: pointer;
 }
 
-#path67 {
-	fill: none !important;
-	stroke: #A9A9A9 !important;
-	cursor: default;
+.hover-class {
+	fill: rgba(var(--color-foreground), 0.7) !important;
+	cursor: pointer;
 }
 
 #info-box {

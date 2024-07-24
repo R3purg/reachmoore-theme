@@ -700,18 +700,6 @@
         "name": "US Map"
       }
     },
-    "us-map-with-states": {
-      "name": "US Map with states",
-      "settings": {
-        "us_map_with_states": {
-          "label": "US Map with states",
-          "info": "US Map with states"
-        }
-      },
-      "presets": {
-        "name": "US Map with states"
-      }
-    },
     "dropdown": {
       "name": "Dropdown",
       "settings": {

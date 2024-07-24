@@ -15,3 +15,14 @@ $("path, circle, text").on('click touchend', function (e) {
 $("path, circle, text").mouseleave(function (e) {
 	$('#info-box').css('display', 'none');
 });
+
+$("text").hover(function (e) {
+	var stateInitials = $(this).attr('id');
+	var pathElement = $(`path#${stateInitials}`);
+
+	if (e.type === "mouseenter") {
+		$(pathElement).addClass('hover-class');
+	} else {
+		$(pathElement).removeClass('hover-class');
+	}
+});
