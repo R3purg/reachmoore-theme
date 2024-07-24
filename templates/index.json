@@ -77,6 +77,21 @@
         "image_behavior": "fixed"
       }
     },
+    "us_map_with_states": {
+      "type": "us-map-with-states",
+      "custom_css": [
+        ".banner:after,.banner__media:after {opacity: 0.2;}"
+      ],
+      "settings": {
+        "us_map_with_states": "",
+        "title": "",
+        "heading_size": "h2",
+        "color_scheme": "scheme-3",
+        "image": "shopify:\/\/shop_images\/data-purple.jpg",
+        "image_overlay_opacity": 0,
+        "image_behavior": "fixed"
+      }
+    },
     "us_map": {
       "type": "us-map",
       "custom_css": [
@@ -397,6 +412,7 @@
   "order": [
     "image_banner",
     "dropdown_qMWwgF",
+    "us_map_with_states",
     "us_map",
     "custom_carousel_ahQdkx",
     "rich_text",

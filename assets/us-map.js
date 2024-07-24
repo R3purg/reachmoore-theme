@@ -1,9 +1,9 @@
-$("path, circle").hover(function (e) {
+$("path, circle, text").hover(function (e) {
 	$('#info-box').css('display', 'block');
 	$('#info-box').html($(this).data('info'));
 });
 
-$("path, circle").on('click touchend', function (e) {
+$("path, circle, text").on('click touchend', function (e) {
 	var stateInitials = $(this).attr('id');
 	var link = `products/${stateInitials.toLowerCase()}`;
 
@@ -12,6 +12,6 @@ $("path, circle").on('click touchend', function (e) {
 	return false;
 });
 
-$("path, circle").mouseleave(function (e) {
+$("path, circle, text").mouseleave(function (e) {
 	$('#info-box').css('display', 'none');
 });
