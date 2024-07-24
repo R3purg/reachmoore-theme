@@ -69,7 +69,7 @@
     line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
   }
 
-  .reachmoore > div {
+  .reachmoore > div.reachmoore-header {
     position: absolute;
     top: 0;
     left: 0;
@@ -79,25 +79,25 @@
     pointer-events: none;
   }
 
-  .reachmoore > div:nth-child(1) {
+  .reachmoore > div.reachmoore-header:nth-child(1) {
     -webkit-mask-image: linear-gradient(black 25%, transparent 25%);
     mask-image: linear-gradient(black 25%, transparent 25%);
     animation: reachmoore1 5s 1;
   }
 
-  .reachmoore > div:nth-child(2) {
+  .reachmoore > div.reachmoore-header:nth-child(2) {
     -webkit-mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
     mask-image: linear-gradient(transparent 25%, black 25%, black 50%, transparent 50%);
     animation: reachmoore2 5s 1;
   }
 
-  .reachmoore > div:nth-child(3) {
+  .reachmoore > div.reachmoore-header:nth-child(3) {
     -webkit-mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
     mask-image: linear-gradient(transparent 50%, black 50%, black 75%, transparent 75%);
     animation: reachmoore3 5s 1;
   }
 
-  .reachmoore > div:nth-child(4) {
+  .reachmoore > div.reachmoore-header:nth-child(4) {
     -webkit-mask-image: linear-gradient(transparent 75%, black 75%);
     mask-image: linear-gradient(transparent 75%, black 75%);
     animation: reachmoore4 5s 1;
@@ -149,6 +149,14 @@
     80% {
       transform: translateX(0%);
     }
+  }
+
+  #reachmoore-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
   }
 {%- endstyle -%}
 
@@ -249,12 +257,14 @@
             >
               {{ block.settings.heading }}
             </h2>
-            <div class="reachmoore">
-              ReachMoore
-              <div>ReachMoore</div>
-              <div>ReachMoore</div>
-              <div>ReachMoore</div>
-              <div>ReachMoore</div>
+            <div id="reachmoore-container">
+              <div class="reachmoore">
+                ReachMoore
+                <div class="reachmoore-header">ReachMoore</div>
+                <div class="reachmoore-header">ReachMoore</div>
+                <div class="reachmoore-header">ReachMoore</div>
+                <div class="reachmoore-header">ReachMoore</div>
+              </div>
             </div>
           {%- when 'text' -%}
             <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>

@@ -1,0 +1,29 @@
+a.fancy-button {
+  padding: calc(.05em + 12px) calc(.3em + 12px);
+  color: rgba(var(--color-button), var(--alpha-button-background));
+  background:
+    conic-gradient(from 90deg at 5px 5px, #0000 90deg, rgba(var(--color-button), var(--alpha-button-background)) 0) 12px 12px/calc(100% - 5px - 2*12px) calc(100% - 5px - 2*12px);
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: 5px solid #0000;
+  outline-offset: .2em;
+  font-family: system-ui, sans-serif;
+  font-weight: bold;
+  font-size: 4rem;
+  cursor: pointer;
+  border: none;
+  margin: .1em;
+  text-decoration: none;
+}
+
+a.fancy-button:hover,
+a.fancy-button:focus-visible {
+  background:
+    conic-gradient(from 90deg at 5px 5px, #0000 90deg, rgba(var(--color-button), var(--alpha-button-background)) 0) 0px 0px/calc(100% - 5px - 2*0px) calc(100% - 5px - 2*0px);
+  outline-color: rgba(var(--color-button), var(--alpha-button-background));
+  outline-offset: .05em;
+}
+
+a.fancy-button:active {
+  background: rgba(var(--color-button), var(--alpha-button-background));
+  color: rgb(var(--color-button-text));
+}
