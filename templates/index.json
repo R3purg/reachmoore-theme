@@ -70,7 +70,7 @@
       "settings": {
         "title": "Browse states",
         "heading_size": "h2",
-        "outer_color_scheme": "scheme-113d8947-26d9-4d8f-8c2c-54538f8c519c",
+        "title_color_scheme": "scheme-113d8947-26d9-4d8f-8c2c-54538f8c519c",
         "inner_color_scheme": "scheme-1",
         "image": "shopify:\/\/shop_images\/data-purple.jpg",
         "image_overlay_opacity": 0,
